@@ -1,7 +1,7 @@
 package entity;
 
-import adt.LinkedStackList;
-import java.time.LocalDate;
+import adt.LinkedStack;
+import java.time.LocalTime;
 
 public class Inventory {
     private String chefName;
@@ -11,12 +11,8 @@ public class Inventory {
     private LocalTime checkInDate = LocalDate.now();
     private LocalTime checkOutDate = LocalDate.now();
     
-    private SortedArrayList arrayList;
-    
-    public Inventory(){
+    private LinkedStack arrayList;
         
-    }
-    
     public void GetOrder(){
         
     }
@@ -25,7 +21,7 @@ public class Inventory {
 
     }
     
-    public boolean PunchIn(String invCode, ){
+    public boolean PunchIn(){
         return true;
     }
     
