@@ -1,4 +1,4 @@
-package ADT;
+package adt;
 
 public interface StackInterface<T> {
 

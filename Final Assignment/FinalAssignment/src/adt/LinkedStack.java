@@ -1,4 +1,4 @@
-package ADT;
+package adt;
 
 public class LinkedStack<T> implements StackInterface<T> {
 

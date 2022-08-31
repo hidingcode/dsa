@@ -34,8 +34,5 @@ public class Inventory {
     
     public boolean isExisted(String addingStock){
         return true;
-    }
-    
-    
-    
+    }  
 }
