@@ -1,31 +1,26 @@
 package entity;
 
 import adt.LinkedStack;
-import java.time.LocalTime;
+import adt.StackInterface;
 
-public class Inventory {
-    private String chefName;
-    private String chefID;
-    private int quantity;
-    private double price;
-    private LocalTime checkInDate = LocalDate.now();
-    private LocalTime checkOutDate = LocalDate.now();
+
+public class Kitchen {  
+    StackInterface<Chef> chefShift = new LinkedStack<Chef>();
     
-    private LinkedStack arrayList;
-        
     public void GetOrder(){
         
     }
     
-    public void UpdateInventory(){
+    public void DisplayOrderStatus(){
 
     }
     
-    public boolean PunchIn(){
-        return true;
+    public void UpdateInventory(){ 
+
     }
     
-    public boolean PunchOut(){
-        return true;
+    public void PunchIn(Chef chef){   
+        chefShift.push(chef);
     }
+
 }
