@@ -11,10 +11,10 @@ public class Kitchen {
         
     }
     
-    public void DisplayOrderStatus(){
+    public void ChangeOrderStatus(){
 
     }
-    
+
     public void UpdateInventory(){ 
 
     }
@@ -23,4 +23,12 @@ public class Kitchen {
         chefShift.push(chef);
     }
 
+    public boolean CheckChefAvaliability(){
+        if(chefShift.isEmpty()){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
 }
