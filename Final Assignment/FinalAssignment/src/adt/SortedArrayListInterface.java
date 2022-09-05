@@ -1,6 +1,8 @@
 package adt;
+import entity.Inventory;
+import java.util.Iterator;
 
-public interface SortedArrayListInterface<T extends Comparable<T>>{
+public interface SortedArrayListInterface<T>{
     //add a new entry
     public boolean add(T newEntry);
 
@@ -18,4 +20,6 @@ public interface SortedArrayListInterface<T extends Comparable<T>>{
     
     //Check if list is empty
     public boolean isEmpty();
+
+    public Iterator<T> getIterator();
 }
