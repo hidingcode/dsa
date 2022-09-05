@@ -7,4 +7,5 @@ public interface StackInterface<T> {
   public T peek();
   public boolean isEmpty();
   public void clear();
+  public boolean toList();
 }
