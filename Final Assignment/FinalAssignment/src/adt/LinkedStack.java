@@ -51,6 +51,13 @@ public class LinkedStack<T> implements StackInterface<T> {
         topNode = null;
     }
 
+    public boolean toList(){
+        if(!isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
     private class Node{
         // Data
         T data;

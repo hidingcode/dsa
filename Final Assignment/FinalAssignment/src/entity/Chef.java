@@ -7,6 +7,8 @@ public class Chef{
 
     public Chef(String chefName, String chefID, String chefPosition){
         this.chefName = chefName;
+        this.chefID = chefID;
+        this.chefPosition = chefPosition;
     }
 
     public void setChefName(String chefName) {
