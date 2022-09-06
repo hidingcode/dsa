@@ -28,15 +28,12 @@ public class driver {
         
         Kitchen kitchen = new Kitchen();
 
-        kitchen.PunchIn("ykp", "C123", "Noob");
-        kitchen.PunchIn("ywy", "C123", "Noob");
+        kitchen.PunchIn("C0001", "ykp", "Noob");
+        kitchen.PunchIn("C0002", "ywy", "Noob");
 
-        Iterator<Chef> chefIterator = chefShift.getIterator();
-        System.out.printf("%-10s %-15s %-10s\n","Chef ID","Employee Name","Salary" );
-        while (chefIterator.hasNext()) {
-            Chef chef = chefIterator.next();
-            System.out.println(chef.getChefName() + chef.getChefID() +chef.getChefPosition());
-        }
+        kitchen.ShowChefShift();
+        kitchen.CheckLate();
+
 
 
 

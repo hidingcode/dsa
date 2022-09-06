@@ -25,19 +25,21 @@ public class Kitchen {
 
     public void ShowChefShift(){
         Iterator<Chef> chefIterator = chefShift.getIterator();
+        System.out.println("Chef Shift List");
+        System.out.println();
+        System.out.printf("%-10s %-15s %-10s\n","Chef ID","Employee Name","Position" );
         while (chefIterator.hasNext()) {
             Chef chef = chefIterator.next();
-            System.out.println(chef.getChefName());
+            System.out.printf("%-10s %-15s %-10s\n",chef.getChefName(),chef.getChefID(),chef.getChefPosition());
         }
     }
 
-    public boolean CheckLate(){
+    public void CheckLastPunchIn(){
         if(chefShift.isEmpty()){
-            System.out.println("There is no chef avaliable ");
-            return false;
+            System.out.println("Chef Shift is Empty ");
         }
         else{
-            return true;
+            System.out.println(chefShift.peek().getChefID());    
         }
     }
 }
