@@ -112,9 +112,6 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
                 nextIndex++;
             }
             return list;
-        }
-        
+        } 
     }
-
-    
 }

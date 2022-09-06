@@ -1,8 +1,11 @@
+// Lim Yong Chien
 package adt;
 
+import java.util.Iterator;
+
 public class LinkedStack<T> implements StackInterface<T> {
-    Node topNode;
-    
+    private Node topNode;
+
     public LinkedStack()
     {
         this.topNode = null;
@@ -14,7 +17,7 @@ public class LinkedStack<T> implements StackInterface<T> {
          // Create new node temp
         Node tempNode = new Node();
         tempNode.data = newEntry;
-        tempNode.reference = topNode;
+        tempNode.next = topNode;
         topNode = tempNode;
         return true;
     }
@@ -24,7 +27,7 @@ public class LinkedStack<T> implements StackInterface<T> {
         // Update the top pointer to point to the next node
        if(!isEmpty())
        {
-            topNode = topNode.reference;
+            topNode = topNode.next;
             return true;
        } 
        return false;
@@ -51,18 +54,41 @@ public class LinkedStack<T> implements StackInterface<T> {
         topNode = null;
     }
 
-    public boolean toList(){
-        if(!isEmpty()){
+    // Chech if the entry match the 
+    public boolean match(T anEntry){
+        if(topNode.data == anEntry){
             return true;
         }
-        return false;
+        else{
+            return false;
+        }
     }
+
+    public Iterator<T> getIterator(){
+        return new StackIterator();
+      }
+    
+      private class StackIterator implements Iterator<T>{
+        private Node currentNode = topNode;
+        public boolean hasNext(){
+          return currentNode != null;
+        }
+        public T next(){
+          T currentData = null;
+          if(hasNext()){
+            currentData = currentNode.data;
+            currentNode = currentNode.next;
+          }
+          return currentData;
+        }
+      }
 
     private class Node{
         // Data
         T data;
         // reference variable Node type
-        Node reference;
+        Node next;
     }
+    
     
 }
