@@ -7,7 +7,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
 
     private T[] array;
     private int numberOfEntries;
-    private static final int DEFAULT_CAPACITY = 25;
+    private static final int DEFAULT_CAPACITY = 100;
 
     public SortedArrayList(){
         this(DEFAULT_CAPACITY);
@@ -21,29 +21,60 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     //add a new entry
     public boolean add(T newEntry){
         int i = 0;
-        if (newEntry != ""){
-            array[i] = newEntry;
+        while (i < numberOfEntries && newEntry.compareTo(array[i]) > 0){
             i++;
-            numberOfEntries++;
         }
-        System.out.println("Add triggered");
+        moveForward(i + 1);
+        array[i] = newEntry;
+        numberOfEntries++;
         return true;
     }
 
+    private void moveForward(int insertPosition) {
+        int newIndex = insertPosition - 1;
+        int lastIndex = numberOfEntries - 1;    
 
-    public String toString() {
-        String output = "";
-        output += array[0];
-        
-        System.out.println("Tostring triggered");
+        for (int index = lastIndex; index >= newIndex; index--) {   
+          array[index + 1] = array[index];
+        }
 
-        return output;
     }
 
     //remove an entry
     public boolean remove(T anEntry){
-        return true;
+        if(numberOfEntries == 0){
+            return false;
+        }else{
+            int index = 0;
+            while(index < numberOfEntries && array[index].compareTo(anEntry) < 0){
+                index++;
+            }
+            
+            if(array[index].equals(anEntry)){
+                System.out.println("Found same");
+                moveBackward(index + 1);
+                numberOfEntries--;
+                return true;
+            }
+        }
+        return false;
     }
+    
+
+    private void moveBackward(int removePosition){
+        int removedIndex = removePosition - 1;
+        int lastIndex = numberOfEntries - 1;
+
+        for (int index = removedIndex; index < lastIndex; index++){
+            array[index] = array[index + 1];
+        }
+    }
+
+    public String toString() {
+
+        return "";
+    }
+
     
     //Check if a certain value is contained in the list
     public boolean contain(T anEntry){
@@ -70,7 +101,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     }
     
     private class ListIterator implements Iterator<T>{
-        int nextIndex;
+        int nextIndex = 0;
         public boolean hasNext(){
             return nextIndex < numberOfEntries;
         }
@@ -80,7 +111,6 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
                 list = array[nextIndex];
                 nextIndex++;
             }
-            
             return list;
         }
         

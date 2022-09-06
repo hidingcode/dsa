@@ -4,24 +4,46 @@ import adt.SortedArrayList;
 import entity.Inventory;
 
 import java.util.Iterator;
+import java.util.Scanner;
 
 public class driver {
     public static void main(String[] args) {
-        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();
-        // this.invCode = invCode;
-        // this.invName = invName;
-        // this.quantity = quantity;
-        // this.price = price;
-        invList.add(new Inventory("inv001"));
-        invList.add(new Inventory("inv002"));
-        invList.add(new Inventory("inv003"));
-        invList.add(new Inventory("inv004"));
-        invList.toString();
+        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();    
+        
+        Inventory inventory = new Inventory<>();
+        
+        invList.add(inventory.addNew(invList, inventory));
+        inventory.update(invList, inventory);
 
-        Iterator<Inventory> invIterator = invList.getIterator();
-        while(invIterator.hasNext()){
-            Inventory inv = invIterator.next();
-            System.out.println(inv.getInvCode());
-        }
+        inventory.isExisted(invList);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // Inventory inventory = new Inventory(req_invCode, req_invName, req_quantity, req_price);
+        // Iterator<Inventory> invIterator = invList.getIterator();
+        // while(invIterator.hasNext()){
+        //     Inventory inv = invIterator.next();
+        //     System.out.printf(inv.getInvCode()+", "+ inv.getInvName()+", "+ inv.getQuantity()+", "+ inv.getPrice()+ ", "+inv.getDate()+"\n");
+            
+        //     if (inv.getInvCode().equals(inventory.getInvCode())){
+        //         System.out.println("Existed");
+        //     }
+            
+        // }
+        
+
+        
     }
+
 }
