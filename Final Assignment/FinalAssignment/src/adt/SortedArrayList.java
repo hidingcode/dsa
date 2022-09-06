@@ -70,14 +70,14 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         }
     }
 
-    public String toString() {
-
-        return "";
-    }
-
     
     //Check if a certain value is contained in the list
-    public boolean contain(T anEntry){
+    public boolean contain(String invCode, Inventory inventory){
+        System.out.println("Contain invCode: "+ invCode);
+        System.out.println("Contain inventory Invcode: "+ inventory.getInvCode());
+        if (invCode.equals(inventory.getInvCode())){
+            System.out.println("Contained");
+        }
         return true;
     }
     
@@ -102,9 +102,11 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     
     private class ListIterator implements Iterator<T>{
         int nextIndex = 0;
+
         public boolean hasNext(){
             return nextIndex < numberOfEntries;
         }
+
         public T next(){
             T list = null;
             if(hasNext()){

@@ -10,7 +10,7 @@ public interface SortedArrayListInterface<T>{
     public boolean remove(T anEntry);
     
     //Check if a certain value is contained in the list
-    public boolean contain(T anEntry);
+    public boolean contain(String invCode,Inventory anEntry);
     
     //Clear the list
     public void clear();

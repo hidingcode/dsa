@@ -14,11 +14,37 @@ public class driver {
         SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();    
         
         Inventory inventory = new Inventory<>();
+        Scanner input = new Scanner(System.in);
+        System.out.print(
+            "Do you want to add new inventory?\n"+
+            "y = Yes, n = No\n"+
+            "Enter your selection: (y/n)\n"
+        );
+        char cmd = input.next().charAt(0);
         
-        invList.add(inventory.addNew(invList, inventory));
-        inventory.update(invList, inventory);
+        do{
+            while(cmd == 'y' || cmd == 'v'){
+                switch(cmd){
+                    case 'y':  
+                        invList.add(inventory.addNew(invList, inventory));
+                        break;
+                    case 'v': 
+                        System.out.println("Latest list: ");
+                        inventory.update(invList, inventory);
+                        break;
+                }
+                System.out.print("Enter 'n' to quit add new inventory, 'y' to continue: , 'v' to view list");
+                cmd = input.next().charAt(0);
+            }
+            
 
-        inventory.isExisted(invList);
+        }while(cmd != 'n');
+        
+        
+        
+        // invList.add(inventory.addNew(invList, inventory));
+        // inventory.update(invList);
+        // inventory.isExisted(invList, inventory);
 
 
 

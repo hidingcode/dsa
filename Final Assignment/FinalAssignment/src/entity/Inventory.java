@@ -29,13 +29,13 @@ public class Inventory<T> implements Comparable<Inventory>{
     public void update(SortedArrayListInterface<Inventory> invList, Inventory inventory){
         System.out.println("UPDATE");
         Iterator<Inventory> invIterator = invList.getIterator();
+        System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
         while(invIterator.hasNext()){
             Inventory inv = invIterator.next();
-            System.out.printf(inv.getInvCode()+", "+ inv.getInvName()+", "+ inv.getQuantity()+", "+ inv.getPrice()+ ", "+inv.getDate()+"\n");
-            
-            if (inv.getInvCode().equals(inventory.getInvCode())){
-                System.out.println("Existed");
-            }
+
+            // invList.contain(inv.invCode, inventory);
+
+            System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
             
         }
 
@@ -55,13 +55,37 @@ public class Inventory<T> implements Comparable<Inventory>{
         int req_quantity = input.nextInt();
         System.out.print("Please enter price: ");
         double req_price = input.nextDouble();
+        System.out.println("ADDED");
+
+        ///pass inventory object to the contain()
+         
+
+        // System.out.println(inventory.getQuantity());
+
+        // if (isExisted(invList, inventory)){
+        //     req_quantity += inventory.getQuantity();
+        //     req_price += inventory.getPrice();
+
+        //     return (inventory =new Inventory<>(req_invCode, req_invName, req_quantity, req_price));
+        // }
 
         return (inventory =new Inventory<>(req_invCode, req_invName, req_quantity, req_price));
     }
     
-    public boolean isExisted(SortedArrayListInterface<Inventory> invList){
+    public boolean isExisted(SortedArrayListInterface<Inventory> invList, Inventory inventory){
         
-        return true;
+        Iterator<Inventory> invIterator = invList.getIterator(); 
+        while(invIterator.hasNext()){
+            inventory = invIterator.next();
+            if (inventory.getInvCode().equals(inventory.getInvCode())){
+                System.out.println("Existed");
+
+                return true;
+            }
+            
+        }
+
+        return false;
     }
 
     @Override
