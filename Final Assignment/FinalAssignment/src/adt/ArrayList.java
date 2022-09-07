@@ -28,7 +28,7 @@ public class ArrayList<T> implements ArrayListInterface<T>, Serializable {
       boolean isSuccessful = true;
 
       if ((newPosition >= 1) && (newPosition <= numberOfEntries + 1)) {
-          makeRoom(newPosition);
+        createAccount(newPosition);
           array[newPosition - 1] = newEntry;
           numberOfEntries++;
       } else {
@@ -106,7 +106,7 @@ public class ArrayList<T> implements ArrayListInterface<T>, Serializable {
       return numberOfEntries == array.length;
     }
 
-    private void makeRoom(int newPosition) {
+    private void createAccount(int newPosition) {
         int newIndex = newPosition - 1;
         int lastIndex = numberOfEntries - 1;
 

@@ -7,12 +7,19 @@ public class Account {
     private int access;
     
     Account(){
-        
+
     }
     
     Account(String username, String password){
         this.username = username;
         this.password = password;
+    }
+
+    Account(int accountID, String username, String password, int access){
+        this.accountID = accountID;
+        this.username = username;
+        this.password = password;
+        this.access = access;
     }
     
     public int getAccountID(){
