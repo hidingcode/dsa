@@ -41,41 +41,39 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     }
 
     //remove an entry
-    public boolean remove(T anEntry){
+    public boolean remove(int removePosition){
         if(numberOfEntries == 0){
             return false;
         }else{
-            int index = 0;
-            while(index < numberOfEntries && array[index].compareTo(anEntry) < 0){
-                index++;
-            }
-            
-            if(array[index].equals(anEntry)){
-                System.out.println("Found same");
-                moveBackward(index + 1);
-                numberOfEntries--;
-                return true;
-            }
+            // int index = 0;
+            // while(index < removePosition){
+            //     index++;
+            // }
+            moveBackward(removePosition-1);
+            numberOfEntries--;
+            return true;
         }
-        return false;
     }
     
-
+//                                      2
     private void moveBackward(int removePosition){
+        //                      2
         int removedIndex = removePosition - 1;
+        //                      2
         int lastIndex = numberOfEntries - 1;
-
+        //                  1                   1
         for (int index = removedIndex; index < lastIndex; index++){
-            array[index] = array[index + 1];
+        //          1               0
+            array[index] = array[index+1];
         }
     }
 
     
     //Check if a certain value is contained in the list
-    public boolean contain(String invCode, Inventory inventory){
+    public boolean contain(String invCode, String currentObj){
         System.out.println("Contain invCode: "+ invCode);
-        System.out.println("Contain inventory Invcode: "+ inventory.getInvCode());
-        if (invCode.equals(inventory.getInvCode())){
+        System.out.println("Contain inventory Invcode: "+ currentObj);
+        if (invCode.equals(currentObj)){
             System.out.println("Contained");
         }
         return true;
@@ -88,7 +86,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     
     //Return the number of entries in the list
     public int getNumberOfEntries(){
-        return 1;
+        return numberOfEntries;
     }
     
     //Check if list is empty
@@ -103,6 +101,10 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     private class ListIterator implements Iterator<T>{
         int nextIndex = 0;
 
+        public ListIterator(){
+            
+        }
+
         public boolean hasNext(){
             return nextIndex < numberOfEntries;
         }
@@ -115,5 +117,6 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
             }
             return list;
         } 
+
     }
 }

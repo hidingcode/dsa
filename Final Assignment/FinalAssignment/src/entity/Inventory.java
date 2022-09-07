@@ -26,14 +26,30 @@ public class Inventory<T> implements Comparable<Inventory>{
 
     }
 
-    public void update(SortedArrayListInterface<Inventory> invList, Inventory inventory){
+    public void update(SortedArrayListInterface<Inventory> invList, Inventory currentObj){
         System.out.println("UPDATE");
         Iterator<Inventory> invIterator = invList.getIterator();
         System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
+        int repeat = 0;
         while(invIterator.hasNext()){
             Inventory inv = invIterator.next();
-
-            // invList.contain(inv.invCode, inventory);
+            System.out.println("NUMBER OF ENTRIES: "+invList.getNumberOfEntries());
+            System.out.println("REPEAT: "+repeat);
+            if(currentObj.getInvCode().equals(inv.getInvCode()) && repeat > 0){    
+                System.out.println("MATCHED"); 
+                inv.setInvName(currentObj.getInvName());
+                inv.setPrice(currentObj.getPrice()+inv.getPrice());
+                inv.setQuantity(currentObj.getQuantity()+inv.getQuantity());
+                inv.setDate();
+                System.out.println("Number of entries: "+invList.getNumberOfEntries());
+                //should be remove the current passing repeat data
+                // invList.remove(invList.getNumberOfEntries());
+            }else if (currentObj.getInvCode().equals(inv.getInvCode())){
+                repeat++;
+            }else{
+                repeat = 0;
+            }
+            
 
             System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
             

@@ -17,8 +17,6 @@ public class driver {
     public static void main(String[] args) {
         // hello???
         SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();    
-        
-<<<<<<< HEAD
         Inventory inventory = new Inventory<>();
         Scanner input = new Scanner(System.in);
         System.out.print(
@@ -31,8 +29,10 @@ public class driver {
         do{
             while(cmd == 'y' || cmd == 'v'){
                 switch(cmd){
-                    case 'y':  
-                        invList.add(inventory.addNew(invList, inventory));
+                    case 'y': 
+                        inventory = inventory.addNew(invList, inventory); 
+                        invList.add(inventory);
+                        
                         break;
                     case 'v': 
                         System.out.println("Latest list: ");
@@ -59,16 +59,16 @@ public class driver {
 
         // inventory.isExisted(invList);
 
-        StackInterface<Chef> chefShift = new LinkedStack<>();
+//         StackInterface<Chef> chefShift = new LinkedStack<>();
         
-        Kitchen kitchen = new Kitchen();
+//         Kitchen kitchen = new Kitchen();
 
-        kitchen.PunchIn("C0001", "ykp", "Noob");
-        kitchen.PunchIn("C0002", "ywy", "Noob");
+//         kitchen.PunchIn("C0001", "ykp", "Noob");
+//         kitchen.PunchIn("C0002", "ywy", "Noob");
 
-        kitchen.ShowChefShift();
-        kitchen.CheckLate();
->>>>>>> 88fddc667ba30d0a1f58b7d95fd0b08c2688d160
+//         kitchen.ShowChefShift();
+//         kitchen.CheckLate();
+// >>>>>>> 88fddc667ba30d0a1f58b7d95fd0b08c2688d160
 
 
 
