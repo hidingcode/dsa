@@ -21,5 +21,8 @@ public interface SortedArrayListInterface<T>{
     //Check if list is empty
     public boolean isEmpty();
 
+    public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory);
+
     public Iterator<T> getIterator();
+
 }

@@ -1,6 +1,6 @@
 package adt;
 import java.util.Iterator;
-
+import java.util.Scanner;
 import entity.Inventory;
 
 public class SortedArrayList<T extends Comparable<T>> implements SortedArrayListInterface<T>{
@@ -45,25 +45,16 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         if(numberOfEntries == 0){
             return false;
         }else{
-            // int index = 0;
-            // while(index < removePosition){
-            //     index++;
-            // }
-            moveBackward(removePosition-1);
+            moveBackward(removePosition);
             numberOfEntries--;
             return true;
         }
     }
     
-//                                      2
     private void moveBackward(int removePosition){
-        //                      2
-        int removedIndex = removePosition - 1;
-        //                      2
+        int removedIndex = removePosition;
         int lastIndex = numberOfEntries - 1;
-        //                  1                   1
         for (int index = removedIndex; index < lastIndex; index++){
-        //          1               0
             array[index] = array[index+1];
         }
     }
@@ -92,6 +83,27 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     //Check if list is empty
     public boolean isEmpty(){
        return true;
+    }
+
+    public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory){
+        Iterator<Inventory> invIterator = invList.getIterator();
+        Scanner input = new Scanner(System.in);
+        System.out.print("What you want to find? :");
+        String stockName = input.nextLine();
+        Inventory findingStock = new Inventory<>();
+        findingStock.setInvName(stockName);
+        while(invIterator.hasNext()){
+            Inventory inv = invIterator.next();
+            if (inv.getInvName().equals(findingStock.getInvName())){
+                System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
+                System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", "Inv"+inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
+
+                return true;
+            }
+        }
+        
+
+        return false;
     }
 
     public Iterator<T> getIterator(){

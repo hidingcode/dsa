@@ -15,49 +15,17 @@ import java.util.Scanner;
 
 public class driver {
     public static void main(String[] args) {
-        // hello???
-        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();    
-        Inventory inventory = new Inventory<>();
-        Scanner input = new Scanner(System.in);
-        System.out.print(
-            "Do you want to add new inventory?\n"+
-            "y = Yes, n = No\n"+
-            "Enter your selection: (y/n)\n"
-        );
-        char cmd = input.next().charAt(0);
-        
-        do{
-            while(cmd == 'y' || cmd == 'v'){
-                switch(cmd){
-                    case 'y': 
-                        inventory = inventory.addNew(invList, inventory); 
-                        invList.add(inventory);
-                        
-                        break;
-                    case 'v': 
-                        System.out.println("Latest list: ");
-                        inventory.update(invList, inventory);
-                        break;
-                }
-                System.out.print("Enter 'n' to quit add new inventory, 'y' to continue: , 'v' to view list");
-                cmd = input.next().charAt(0);
-            }
-            
+        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
+        Inventory inventory;
+        int code = 0;
+        invList.add(inventory = new Inventory(++code, "Steak", 25, 100));
+        invList.add(inventory = new Inventory(++code, "Pork", 25, 80));
+        invList.add(inventory = new Inventory(++code, "Lamb", 25, 90));
+        invList.add(inventory = new Inventory(++code, "Fish", 25, 70));
+        invList.add(inventory = new Inventory(++code, "Bread", 25, 50));
+        invList.add(inventory = new Inventory(++code, "Sugar", 25, 30));
+        inventory.main(invList, inventory);
 
-        }while(cmd != 'n');
-        
-        
-        
-        // invList.add(inventory.addNew(invList, inventory));
-        // inventory.update(invList);
-        // inventory.isExisted(invList, inventory);
-//=======
-        // Inventory inventory = new Inventory<>();
-        
-        // invList.add(inventory.addNew(invList, inventory));
-        // inventory.update(invList, inventory);
-
-        // inventory.isExisted(invList);
 
 //         StackInterface<Chef> chefShift = new LinkedStack<>();
         
@@ -97,6 +65,10 @@ public class driver {
         
 
         
+    }
+
+    private static Inventory inventory() {
+        return null;
     }
 
 }
