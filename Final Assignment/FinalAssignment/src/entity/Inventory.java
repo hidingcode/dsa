@@ -8,14 +8,14 @@ import adt.SortedArrayList;
 import adt.SortedArrayListInterface;
 
 public class Inventory<T> implements Comparable<Inventory>{ 
-    private int invCode = 0;
+    private String invCode;
     private String invName;
     private int quantity;
     private double price;
     private LocalDate date = LocalDate.now();
     
     
-    public Inventory(int invCode, String invName, int quantity, double price){
+    public Inventory(String invCode, String invName, int quantity, double price){
         this.invCode = invCode;
         this.invName = invName;
         this.quantity = quantity;
@@ -31,16 +31,19 @@ public class Inventory<T> implements Comparable<Inventory>{
          
         Scanner input = new Scanner(System.in);
         System.out.print(
-            "Do you want to add new inventory?\n"+
-            "y = Yes, n = No\n"+
-            "Enter your selection: (y/n)\n"
+            "Inventory section: \n"+
+            "Enter 'a' to add new inventory,\n"+
+            "Enter 'v' to view inventory list\n"+
+            "Enter 's' to search inventory\n"+
+            "Enter 'q' to quit the inventory\n"+
+            "Enter your selection: "
         );
         char cmd = input.next().charAt(0);
         
         do{
-            while(cmd == 'y' || cmd == 'v' || cmd == 'f'){
+            while(cmd == 'a' || cmd == 'v' || cmd == 's'){
                 switch(cmd){
-                    case 'y': 
+                    case 'a': 
                         inventory = inventory.addNew(invList, inventory); 
                         invList.add(inventory);
                         
@@ -50,19 +53,27 @@ public class Inventory<T> implements Comparable<Inventory>{
                         inventory.update(invList, inventory);
                         inventory.stockList(invList);
                         break;
-                    case 'f':
+                    case 's':
                         System.out.println("SEARCHING");
                         if (!invList.Searching(invList, inventory)){
                             System.out.println("Inventory does not exists!");
                         }
                         break;
                 }
-                System.out.print("\n\nEnter 'n' to quit add new inventory, 'y' to continue: , 'v' to view list");
+                System.out.print(
+                    "Inventory section: \n"+
+                    "Enter 'a' to add new inventory,\n"+
+                    "Enter 'v' to view inventory list\n"+
+                    "Enter 's' to search inventory\n"+
+                    "Enter 'q' to quit the inventory\n"+
+                    "Enter your selection: "
+                );
+                
                 cmd = input.next().charAt(0);
             }
             
 
-        }while(cmd != 'n');
+        }while(cmd != 'q');
         
     }
 
@@ -71,7 +82,7 @@ public class Inventory<T> implements Comparable<Inventory>{
         System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
         while(invIterator.hasNext()){
             Inventory inv = invIterator.next();
-            System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", "Inv"+inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
+            System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
   
         }
     }
@@ -86,7 +97,7 @@ public class Inventory<T> implements Comparable<Inventory>{
             index++;
             // System.out.println("INDEX: "+index);
             // System.out.println("NUMBER OF ENTRIES: "+invList.getNumberOfEntries());
-            if(currentObj.getInvCode() == inv.getInvCode() && repeat > 0 ){         
+            if(currentObj.getInvCode().equals(inv.getInvCode()) && repeat > 0 ){         
                 while(index > currentIndex){
                     currentIndex++;
                 }
@@ -95,7 +106,7 @@ public class Inventory<T> implements Comparable<Inventory>{
                 inv.setQuantity(currentObj.getQuantity()+inv.getQuantity());
                 inv.setDate();
                 invList.remove(currentIndex-2);
-            }else if (currentObj.getInvCode()==inv.getInvCode()){
+            }else if (currentObj.getInvCode().equals(inv.getInvCode())){
                 repeat++;
             }else{
                 repeat = 0;
@@ -108,6 +119,9 @@ public class Inventory<T> implements Comparable<Inventory>{
     
     public Inventory addNew(SortedArrayListInterface<Inventory> invList, Inventory inventory){
         Scanner input = new Scanner(System.in);
+        System.out.println("\nAdd New Inventory: ");
+        System.out.print("Please enter inv code: ");
+        String req_invCode = input.nextLine();
         System.out.print("Please enter inv name: ");
         String req_invName = input.nextLine();
         System.out.print("Please enter quantity: ");
@@ -117,15 +131,15 @@ public class Inventory<T> implements Comparable<Inventory>{
         System.out.println("ADDED");
 
 
-        return (inventory =new Inventory<>(inventory.getInvCode()+1, req_invName, req_quantity, req_price));
+        return (inventory =new Inventory<>(req_invCode, req_invName, req_quantity, req_price));
     }
 
     @Override
     public int compareTo(Inventory inv) {
-        return (int)(this.invCode - inv.invCode);
+        return (this.invCode.compareTo(inv.invCode));
     }
 
-    public int getInvCode(){
+    public String getInvCode(){
         return invCode;
     }
 
@@ -145,7 +159,7 @@ public class Inventory<T> implements Comparable<Inventory>{
         return date;
     }
 
-    public void setInvCode(int invCode){
+    public void setInvCode(String invCode){
         this.invCode = invCode;
     }
 

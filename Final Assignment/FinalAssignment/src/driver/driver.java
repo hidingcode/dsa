@@ -17,13 +17,12 @@ public class driver {
     public static void main(String[] args) {
         SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
         Inventory inventory;
-        int code = 0;
-        invList.add(inventory = new Inventory(++code, "Steak", 25, 100));
-        invList.add(inventory = new Inventory(++code, "Pork", 25, 80));
-        invList.add(inventory = new Inventory(++code, "Lamb", 25, 90));
-        invList.add(inventory = new Inventory(++code, "Fish", 25, 70));
-        invList.add(inventory = new Inventory(++code, "Bread", 25, 50));
-        invList.add(inventory = new Inventory(++code, "Sugar", 25, 30));
+        invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
+        invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
+        invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
+        invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
+        invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
+        invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
         inventory.main(invList, inventory);
 
 
