@@ -7,10 +7,10 @@ public interface SortedArrayListInterface<T>{
     public boolean add(T newEntry);
 
     //remove an entry
-    public boolean remove(T anEntry);
+    public boolean remove(int removePosition);
     
     //Check if a certain value is contained in the list
-    public boolean contain(T anEntry);
+    public boolean contain(String invCode,String anEntry);
     
     //Clear the list
     public void clear();
@@ -21,5 +21,8 @@ public interface SortedArrayListInterface<T>{
     //Check if list is empty
     public boolean isEmpty();
 
+    public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory);
+
     public Iterator<T> getIterator();
+
 }

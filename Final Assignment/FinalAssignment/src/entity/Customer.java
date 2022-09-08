@@ -4,13 +4,16 @@ public class Customer extends Account{
     private int phoneNo;
     private int point;
     private String address;
-    
-    Customer(){
-        
-    }
-    
-    Customer(String username, String password){
+
+    public Customer(String username, String password){
         super(username, password);
+    }
+
+    public Customer(int accountID, String username, String password, int access, int phoneNo, int point, String address){
+        super(accountID, username, password, access);
+        this.phoneNo = phoneNo;
+        this.point = point;
+        this.address = address;
     }
     
     public int getPhoneNo(){

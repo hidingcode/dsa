@@ -1,6 +1,6 @@
 package adt;
 import java.util.Iterator;
-
+import java.util.Scanner;
 import entity.Inventory;
 
 public class SortedArrayList<T extends Comparable<T>> implements SortedArrayListInterface<T>{
@@ -41,43 +41,32 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     }
 
     //remove an entry
-    public boolean remove(T anEntry){
+    public boolean remove(int removePosition){
         if(numberOfEntries == 0){
             return false;
         }else{
-            int index = 0;
-            while(index < numberOfEntries && array[index].compareTo(anEntry) < 0){
-                index++;
-            }
-            
-            if(array[index].equals(anEntry)){
-                System.out.println("Found same");
-                moveBackward(index + 1);
-                numberOfEntries--;
-                return true;
-            }
+            moveBackward(removePosition);
+            numberOfEntries--;
+            return true;
         }
-        return false;
     }
     
-
     private void moveBackward(int removePosition){
-        int removedIndex = removePosition - 1;
+        int removedIndex = removePosition;
         int lastIndex = numberOfEntries - 1;
-
         for (int index = removedIndex; index < lastIndex; index++){
-            array[index] = array[index + 1];
+            array[index] = array[index+1];
         }
-    }
-
-    public String toString() {
-
-        return "";
     }
 
     
     //Check if a certain value is contained in the list
-    public boolean contain(T anEntry){
+    public boolean contain(String invCode, String currentObj){
+        System.out.println("Contain invCode: "+ invCode);
+        System.out.println("Contain inventory Invcode: "+ currentObj);
+        if (invCode.equals(currentObj)){
+            System.out.println("Contained");
+        }
         return true;
     }
     
@@ -88,12 +77,33 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     
     //Return the number of entries in the list
     public int getNumberOfEntries(){
-        return 1;
+        return numberOfEntries;
     }
     
     //Check if list is empty
     public boolean isEmpty(){
        return true;
+    }
+
+    public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory){
+        Iterator<Inventory> invIterator = invList.getIterator();
+        Scanner input = new Scanner(System.in);
+        System.out.print("What you want to find? :");
+        String stockName = input.nextLine();
+        Inventory findingStock = new Inventory<>();
+        findingStock.setInvName(stockName);
+        while(invIterator.hasNext()){
+            Inventory inv = invIterator.next();
+            if (inv.getInvName().equals(findingStock.getInvName())){
+                System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
+                System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", "Inv"+inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
+
+                return true;
+            }
+        }
+        
+
+        return false;
     }
 
     public Iterator<T> getIterator(){
@@ -102,9 +112,15 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     
     private class ListIterator implements Iterator<T>{
         int nextIndex = 0;
+
+        public ListIterator(){
+            
+        }
+
         public boolean hasNext(){
             return nextIndex < numberOfEntries;
         }
+
         public T next(){
             T list = null;
             if(hasNext()){
@@ -113,5 +129,6 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
             }
             return list;
         } 
+
     }
 }
