@@ -1,14 +1,12 @@
 package entity;
 
 public class Chef{
-    private String chefName;
     private String chefID;
-    private String chefPosition;
+    private String chefName;
 
-    public Chef(String chefName, String chefID, String chefPosition){
+    public Chef(String chefID, String chefName){
         this.chefName = chefName;
         this.chefID = chefID;
-        this.chefPosition = chefPosition;
     }
 
     public void setChefName(String chefName) {
@@ -25,13 +23,5 @@ public class Chef{
 
     public String getChefID() {
         return chefID;
-    }
-
-    public void setChefPosition(String chefPosition) {
-        this.chefPosition = chefPosition;
-    }
-
-    public String getChefPosition() {
-        return chefPosition;
     }
 }

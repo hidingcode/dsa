@@ -3,23 +3,22 @@ package adt;
 
 import java.util.Iterator;
 
-public class LinkedStack<T> implements StackInterface<T> {
+public class LinkedStack<T> implements LinkedStackInterface<T> {
     private Node topNode;
 
-    public LinkedStack()
-    {
+    public LinkedStack(){
         this.topNode = null;
     }
     
     // Adds a new entry to the top of the stack.
     @Override
     public boolean push(T newEntry) {
-         // Create new node temp
+        // Create new node temp
         Node tempNode = new Node();
         tempNode.data = newEntry;
         tempNode.next = topNode;
         topNode = tempNode;
-        return true;
+        return true; 
     }
     // Removes and returns the stack's top entry.
     @Override
@@ -54,34 +53,53 @@ public class LinkedStack<T> implements StackInterface<T> {
         topNode = null;
     }
 
-    // Chech if the entry match the 
-    public boolean match(T anEntry){
-        if(topNode.data == anEntry){
-            return true;
+    public int search(Object o) {
+        int index = 1;
+        Node currentNode = topNode;
+        while (currentNode != null) {
+            if (o == null) {
+                if (currentNode.data == null) {
+                    return index;
+                }
+            } else {
+                if (o.equals(currentNode.data)) {
+                    return index;
+                }
+            }
+            currentNode = currentNode.next;
+            index++;
         }
-        else{
-            return false;
-        }
+        return -1; // nothing found
     }
+
+    // // Chech if the entry match the 
+    // public boolean match(T anEntry){
+    //     if(topNode.data == anEntry){
+    //         return true;
+    //     }
+    //     else{
+    //         return false;
+    //     }
+    // }
 
     public Iterator<T> getIterator(){
         return new StackIterator();
-      }
+    }
     
-      private class StackIterator implements Iterator<T>{
+    private class StackIterator implements Iterator<T>{
         private Node currentNode = topNode;
         public boolean hasNext(){
-          return currentNode != null;
+        return currentNode != null;
         }
         public T next(){
-          T currentData = null;
-          if(hasNext()){
+        T currentData = null;
+        if(hasNext()){
             currentData = currentNode.data;
             currentNode = currentNode.next;
-          }
-          return currentData;
         }
-      }
+        return currentData;
+        }
+    }
 
     private class Node{
         // Data

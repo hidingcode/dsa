@@ -2,44 +2,102 @@
 package entity;
 
 import adt.LinkedStack;
-import adt.StackInterface;
+import adt.LinkedStackInterface;
 import java.util.Iterator;
-import entity.Chef;
+import java.util.Scanner;
 
 public class Kitchen {  
-    StackInterface<Chef> chefShift = new LinkedStack<Chef>();
+    LinkedStackInterface<Chef> chefShift = new LinkedStack<Chef>();
     
     public void GetOrder(){
         
     }
     
     public void UpdateInventory(){ 
-
+        
     }
     
-    public boolean PunchIn(String chefName, String chefID, String chefPosition){ 
-        chefShift.push(new Chef(chefName, chefID, chefPosition));
-        System.out.println("Punch In Succesfully");
-        return true;
-    }
-
-    public void ShowChefShift(){
-        Iterator<Chef> chefIterator = chefShift.getIterator();
-        System.out.println("Chef Shift List");
+    public void Main(){
         System.out.println();
-        System.out.printf("%-10s %-15s %-10s\n","Chef ID","Employee Name","Position" );
-        while (chefIterator.hasNext()) {
-            Chef chef = chefIterator.next();
-            System.out.printf("%-10s %-15s %-10s\n",chef.getChefName(),chef.getChefID(),chef.getChefPosition());
+        System.out.println("Kitchen Module");
+        System.out.println("1) Punch In\t2) Show Chef Shift\t3) Show Last Check In");
+        System.out.println();
+        System.out.print("Option(Any Key To Exit Except 1 and 2): ");
+        Scanner sc = new Scanner(System.in);
+        String option = sc.next();
+        switch(option){
+            case "1":
+                PunchInMenu();
+                break;
+            case "2":
+                ShowChefShift();
+                break;
+            case "3":
+                ShowLastPunchIn();
+            default:
         }
     }
 
-    public void CheckLastPunchIn(){
+    public void PunchInMenu(){
+        System.out.print("Please enter your ID: ");
+        Scanner sc = new Scanner(System.in);
+        String id = sc.next();
+        System.out.print("Please enter your Name: ");
+        String name = sc.next();
+        System.out.println();
+        PunchIn(id, name);  
+    }
+
+    public void PunchIn(String chefID, String chefName){ 
+        Chef newChef = new Chef(chefID, chefName); 
+        chefShift.push(newChef);
+        System.out.println("Punch In Succesfully");
+        Main();   
+    }
+
+    public void ShowChefShift(){
+        if(chefShift.isEmpty())
+        {
+            System.out.println("No Chef Avaliable");
+        }
+        else{
+            Iterator<Chef> chefIterator = chefShift.getIterator();
+            System.out.println();
+            System.out.println("Chef Shift List");
+            System.out.println();
+            System.out.printf("%-10s %-15s\n","Chef ID","Chef Name");
+            while (chefIterator.hasNext()) {
+            Chef chef = chefIterator.next();
+            System.out.printf("%-10s %-15s\n",chef.getChefID(),chef.getChefName());
+            }
+        }
+        Main();
+    }
+
+    public void ShowLastPunchIn(){
+        if(chefShift.isEmpty()){
+            System.out.println("\nChef Shift is Empty ");
+        }
+        else{
+            System.out.println("\nLast Punch In Chef");
+            System.out.println();
+            System.out.printf("%-10s %-15s\n","Chef ID","Chef Name");
+            System.out.printf("%-10s %-15s\n",chefShift.peek().getChefID(),chefShift.peek().getChefName());    
+        }
+        Main();
+    }
+    // UpdateChef After Getting Order
+    public void UpdateChef(){
         if(chefShift.isEmpty()){
             System.out.println("Chef Shift is Empty ");
         }
         else{
-            System.out.println(chefShift.peek().getChefID());    
+            System.out.println("Chef assigned: " + chefShift.peek().getChefName());
+            chefShift.pop();
         }
+    }
+
+    public int SearchChef(String chefName){
+        return chefShift.search(new String(chefName));
     }
 }
