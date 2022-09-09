@@ -9,31 +9,22 @@ public class Customer extends Account{
         super(username, password);
     }
 
-    public Customer(int accountID, String username, String password, int access, int phoneNo, int point, String address){
+    public Customer(int accountID, String username, String password, int access, int phoneNo, String address){
         super(accountID, username, password, access);
         this.phoneNo = phoneNo;
-        this.point = point;
         this.address = address;
     }
     
     public int getPhoneNo(){
         return phoneNo;
     }
-    
-    public int getPoint(){
-        return point;
-    }
-    
+
     public String getAddress(){
         return address;
     }
     
     public void setPhoneNo(int phoneNo){
         this.phoneNo = phoneNo;
-    }
-    
-    public void setPonit(int point){
-        this.point = point;
     }
     
     public void setAddress(String address){
