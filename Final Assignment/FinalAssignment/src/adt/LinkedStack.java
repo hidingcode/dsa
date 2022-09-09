@@ -5,6 +5,7 @@ import java.util.Iterator;
 
 public class LinkedStack<T> implements LinkedStackInterface<T> {
     private Node topNode;
+    private int numberOfEntries = 0;
 
     public LinkedStack(){
         this.topNode = null;
@@ -17,6 +18,8 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         tempNode.data = newEntry;
         tempNode.next = topNode;
         topNode = tempNode;
+        numberOfEntries++;
+        System.out.println(numberOfEntries);
         return true; 
     }
     // Removes and returns the stack's top entry.
@@ -24,8 +27,9 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
     public boolean pop() {
         // Update the top pointer to point to the next node
        if(!isEmpty())
-       {
+       {    
             topNode = topNode.next;
+            numberOfEntries--;
             return true;
        } 
        return false;
@@ -52,29 +56,27 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         topNode = null;
     }
 
-    // Return the position of object searched in the stack
-    public int search(Object o) {
-        System.out.println("In search: "+o);
-        int index = 1;
+    // Search the position in the stack and return the data
+    public T searchFromPosition(int position) {
+        int index = 0;
         Node currentNode = topNode;
-        System.out.println("current node" +currentNode);
         while (currentNode != null) {
-            if (o == null) {
-                if (currentNode.data == null) {
-                    return index;
-                }
-            } else {
-                if (o.equals(currentNode.data)) {
-                    return index;
-                }
+            if (index == position) {
+                return currentNode.data;
             }
             currentNode = currentNode.next;
             index++;
         }
-        return -1; // nothing found
+        // Search failed
+        System.out.println("Search not found");
+        return null;
     }
 
-    // // Chech if the entry match the 
+    public int getNumberOfEntries() {
+        return numberOfEntries;
+    }
+
+    // // Chech if the entry match the topNode 
     // public boolean match(T anEntry){
     //     if(topNode.data == anEntry){
     //         return true;

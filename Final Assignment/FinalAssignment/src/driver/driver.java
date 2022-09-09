@@ -29,7 +29,7 @@ public class driver {
         
         //  
         Kitchen kitchen = new Kitchen();
-        kitchen.PunchIn("ykp", "ywy");
+        kitchen.Main();
         // Chef chef;
         // chef = new Chef("c1", "lyc");
         // chefShift.push(chef);
@@ -37,8 +37,6 @@ public class driver {
         // chef = new Chef("c1", "ykp");
         // chefShift.push(chef);
         //want to search ykp
-        System.out.println(kitchen.SearchChef("ykp"));
-
 
 //         kitchen.PunchIn("C0001", "ykp", "Noob");
 //         kitchen.PunchIn("C0002", "ywy", "Noob");
