@@ -14,27 +14,40 @@ public class AccountControl {
     ArrayListInterface<Account> accList = new ArrayList<Account>();
 
     public void main(){
-        accList.add(new Staff(1001, "nengfu14", "nengfu14", 2, 201));
-        accList.add(new Staff(1002, "quack", "quack", 2, 202));
-        accList.add(new Customer(1003, "ctj", "ctj", 1, 123, "GAY"));
-        accList.add(new Customer(1004, "ykp", "ykp", 1, 123,"GAY"));
-        accList.add(new Customer(1005, "ywy", "ywy", 1, 123, "GAY"));
-    
+        System.out.println("(1) Login \n"
+                        +  "(2) Register \n");
+        System.out.println("---------------------------------\n");
+        System.out.println("Enter the number to proceed: ");
+        int log = input.nextInt();
+        switch(log){
+            case 1:
+                loginProcess();
+                break;
+            // case 2:
+            //     register(acclist, account); 
+            //     acclist.add(account);
+            //     break;
+        }
     }
-
-    public String login(String logUsername, String logPassword){
-        System.out.print("Login Details \n");
-        System.out.print("Username: ");
+    public void loginProcess(){
+        System.out.print("[--- Login Details ---]");
+        System.out.print("\nUsername: ");
         String loginUsername = input.nextLine();
         System.out.print("\nPassword: ");
         String loginPassword = input.nextLine();
 
-        return null;
+        login(loginUsername, loginPassword);
     }
 
-    public String register(String regUsername, String regPassword, int regPhoneNo, String regAddress){
-        System.out.print("Register Details \n");
-        System.out.print("Username: ");
+    public void login(String logUsername, String logPassword){
+
+    }
+
+    public void registerProcess(){
+        System.out.print("[--- Register Details ---]");
+        int registerAccID = 0;
+        int registerAccess = 1;
+        System.out.print("\nUsername: ");
         String registerUsername = input.nextLine();
         System.out.print("\nPassword: ");
         String registerPassword = input.nextLine();
@@ -43,7 +56,13 @@ public class AccountControl {
         System.out.print("\nHome Addresses: ");
         String registerAddress = input.nextLine();
 
-        return null;
+        register(registerAccID, registerUsername, registerPassword, registerAccess, registerPhoneNo, registerAddress);
+    }    
+
+    public String register(int regAccID, String regUsername, String regPassword, int regAccess, int regPhoneNo, String regAddress){
+        
+
+        return null;// (account = new AccountControl<>(registerUsername, registerPassword, registerPhoneNo, registerAddress));
     }
 
     public String userProfile(int accID, int accAccess){

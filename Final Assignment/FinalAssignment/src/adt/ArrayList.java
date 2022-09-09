@@ -1,8 +1,6 @@
 package adt;
 
-import java.io.Serializable;
-
-public class ArrayList<T> implements ArrayListInterface<T>, Serializable {
+public class ArrayList<T> implements ArrayListInterface<T> {
 
     private T[] array;
     private int numberOfEntries;
