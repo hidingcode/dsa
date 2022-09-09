@@ -19,16 +19,15 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         tempNode.next = topNode;
         topNode = tempNode;
         numberOfEntries++;
-        System.out.println(numberOfEntries);
         return true; 
     }
     // Removes and returns the stack's top entry.
     @Override
     public boolean pop() {
-        // Update the top pointer to point to the next node
        if(!isEmpty())
-       {    
+       {    // Move the top pointer to point to the next node
             topNode = topNode.next;
+            // Decrease the number of entries by 1
             numberOfEntries--;
             return true;
        } 
@@ -60,7 +59,7 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
     public T searchFromPosition(int position) {
         int index = 0;
         Node currentNode = topNode;
-        while (currentNode != null) {
+        while (currentNode != null){
             if (index == position) {
                 return currentNode.data;
             }
@@ -72,19 +71,20 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         return null;
     }
 
+    // Get the Number Of Entries
     public int getNumberOfEntries() {
         return numberOfEntries;
     }
 
-    // // Chech if the entry match the topNode 
-    // public boolean match(T anEntry){
-    //     if(topNode.data == anEntry){
-    //         return true;
-    //     }
-    //     else{
-    //         return false;
-    //     }
-    // }
+    // Chech if the entry match the topNode 
+    public boolean match(T anEntry){
+        if(topNode.data == anEntry){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
     public Iterator<T> getIterator(){
         return new StackIterator();

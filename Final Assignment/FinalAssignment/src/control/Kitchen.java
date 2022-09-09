@@ -19,12 +19,16 @@ public class Kitchen {
         
     }
     
-    public void Main(){
+    public void UI(){
         System.out.println();
         System.out.println("Kitchen Module");
-        System.out.println("1) Punch In\t2) Show Chef Shift\t3) Show Last Check In\t4) Search");
+        System.out.println("1) Punch In\t2) Show Chef Shift\t3) Show Last Punch In\t4) Search");
         System.out.println();
-        System.out.print("Option(Any Key To Exit Except 1,2 and 3): ");
+        System.out.print("Option(Any Key To Exit Except 1,2,3,4) >> ");
+    }
+
+    public void Main(){
+        UI();
         Scanner sc = new Scanner(System.in);
         String option = sc.next();
         switch(option){
@@ -39,8 +43,12 @@ public class Kitchen {
             case "3":
                 // Show last punch in chef information
                 ShowLastPunchIn();
+                break;
             case "4":
-                System.out.println(SearchChef(1).getChefID());    
+                System.out.println(SearchChef(1).getChefName());
+                break; 
+            case "5":
+                break;       
             default:
                 // Do nothing an end the program
         }
@@ -110,7 +118,6 @@ public class Kitchen {
     }
 
     public Chef SearchChef(int punchInSequence){
-        int inversePosition = chefShift.getNumberOfEntries();
-        return chefShift.searchFromPosition(punchInSequence - 1);
+        return chefShift.searchFromPosition(chefShift.getNumberOfEntries()- punchInSequence);
     }
 }
