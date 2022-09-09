@@ -16,48 +16,33 @@ import java.util.Stack;
 
 public class driver {
     public static void main(String[] args) {
-<<<<<<< HEAD
-        // SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();    
-=======
-        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
-        Inventory inventory;
-        invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
-        invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
-        invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
-        invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
-        invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
-        invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
-        inventory.main(invList, inventory);
+        // SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
+        // Inventory inventory;
+        // invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
+        // invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
+        // invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
+        // invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
+        // invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
+        // invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
+        // inventory.main(invList, inventory);
 
-
-//         StackInterface<Chef> chefShift = new LinkedStack<>();
->>>>>>> 2af63bf0413e8f0318a27482501cb84257f55494
         
-//         Kitchen kitchen = new Kitchen();
+        //  
+        Kitchen kitchen = new Kitchen();
+        kitchen.PunchIn("ykp", "ywy");
+        // Chef chef;
+        // chef = new Chef("c1", "lyc");
+        // chefShift.push(chef);
+        // System.out.println(chef.getChefName());
+        // chef = new Chef("c1", "ykp");
+        // chefShift.push(chef);
+        //want to search ykp
+        System.out.println(kitchen.SearchChef("ykp"));
+
 
 //         kitchen.PunchIn("C0001", "ykp", "Noob");
 //         kitchen.PunchIn("C0002", "ywy", "Noob");
 
-<<<<<<< HEAD
-=======
-//         kitchen.ShowChefShift();
-//         kitchen.CheckLate();
-// >>>>>>> 88fddc667ba30d0a1f58b7d95fd0b08c2688d160
-
-
-
-
-
-
-
-
-
-
-
-
-
-
->>>>>>> 2af63bf0413e8f0318a27482501cb84257f55494
         // Inventory inventory = new Inventory(req_invCode, req_invName, req_quantity, req_price);
         // Iterator<Inventory> invIterator = invList.getIterator();
         // while(invIterator.hasNext()){
@@ -70,15 +55,7 @@ public class driver {
             
         // }  
               
-       Kitchen kitchen = new Kitchen();
-       kitchen.Main();
+    //    Kitchen kitchen = new Kitchen();
+    //    kitchen.Main();
     }
-<<<<<<< HEAD
-=======
-
-    private static Inventory inventory() {
-        return null;
-    }
-
->>>>>>> 2af63bf0413e8f0318a27482501cb84257f55494
 }

@@ -9,7 +9,6 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
     public LinkedStack(){
         this.topNode = null;
     }
-    
     // Adds a new entry to the top of the stack.
     @Override
     public boolean push(T newEntry) {
@@ -53,9 +52,12 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         topNode = null;
     }
 
+    // Return the position of object searched in the stack
     public int search(Object o) {
+        System.out.println("In search: "+o);
         int index = 1;
         Node currentNode = topNode;
+        System.out.println("current node" +currentNode);
         while (currentNode != null) {
             if (o == null) {
                 if (currentNode.data == null) {
@@ -107,6 +109,4 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         // reference variable Node type
         Node next;
     }
-    
-    
 }

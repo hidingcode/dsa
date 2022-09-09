@@ -4,6 +4,10 @@ public class Chef{
     private String chefID;
     private String chefName;
 
+    public Chef(){
+        
+    }
+
     public Chef(String chefID, String chefName){
         this.chefName = chefName;
         this.chefID = chefID;

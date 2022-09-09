@@ -22,7 +22,7 @@ public class Kitchen {
         System.out.println("Kitchen Module");
         System.out.println("1) Punch In\t2) Show Chef Shift\t3) Show Last Check In");
         System.out.println();
-        System.out.print("Option(Any Key To Exit Except 1 and 2): ");
+        System.out.print("Option(Any Key To Exit Except 1,2 and 3): ");
         Scanner sc = new Scanner(System.in);
         String option = sc.next();
         switch(option){
@@ -73,11 +73,13 @@ public class Kitchen {
         }
         Main();
     }
-
+    // Show Last Punch In Chef
     public void ShowLastPunchIn(){
+        // Check Chef Shift is empty or not?
         if(chefShift.isEmpty()){
             System.out.println("\nChef Shift is Empty ");
         }
+        // Show Chef Information
         else{
             System.out.println("\nLast Punch In Chef");
             System.out.println();
@@ -88,16 +90,18 @@ public class Kitchen {
     }
     // UpdateChef After Getting Order
     public void UpdateChef(){
+         // Check Chef Shift is empty or not?
         if(chefShift.isEmpty()){
             System.out.println("Chef Shift is Empty ");
         }
         else{
             System.out.println("Chef assigned: " + chefShift.peek().getChefName());
+            // Remoce chef from the stack
             chefShift.pop();
         }
     }
 
     public int SearchChef(String chefName){
-        return chefShift.search(new String(chefName));
+        return chefShift.search(chefName);
     }
 }
