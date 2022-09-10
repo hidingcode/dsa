@@ -61,34 +61,22 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
 
     
     //Check if a certain value is contained in the list
-    public boolean contain(String invCode, String currentObj){
-        System.out.println("Contain invCode: "+ invCode);
-        System.out.println("Contain inventory Invcode: "+ currentObj);
-        if (invCode.equals(currentObj)){
-            System.out.println("Contained");
+    public boolean contain(String invCode, String currentCode){
+        if (invCode.equals(currentCode)){
+            return true;
         }
-        return true;
-    }
-    
-    //Clear the list
-    public void clear(){
-        
+        return false;
     }
     
     //Return the number of entries in the list
     public int getNumberOfEntries(){
         return numberOfEntries;
     }
-    
-    //Check if list is empty
-    public boolean isEmpty(){
-       return true;
-    }
 
     public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory){
         Iterator<Inventory> invIterator = invList.getIterator();
         Scanner input = new Scanner(System.in);
-        System.out.print("What you want to find? :");
+        System.out.print("Stock name:");
         String stockName = input.nextLine();
         Inventory findingStock = new Inventory<>();
         findingStock.setInvName(stockName);
@@ -96,13 +84,12 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
             Inventory inv = invIterator.next();
             if (inv.getInvName().equals(findingStock.getInvName())){
                 System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
-                System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", "Inv"+inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
-
+                System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
                 return true;
             }
         }
         
-
+        System.out.print("【"+stockName+"】");
         return false;
     }
 

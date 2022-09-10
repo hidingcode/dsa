@@ -123,7 +123,14 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public String getAllEntry() {
+    public boolean getAllEntry() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public boolean edit() {
+      // TODO Auto-generated method stub
+      return false;
+    }
+
 }
