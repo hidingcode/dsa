@@ -2,12 +2,12 @@ package driver;
 
 import adt.LinkedStackInterface;
 import adt.SortedArrayListInterface;
+import control.Kitchen;
 import adt.SortedArrayList;
 import java.util.Iterator;
 import adt.LinkedStack;
 
 import entity.Chef;
-import entity.Kitchen;
 import entity.Inventory;
 
 import java.util.Iterator;

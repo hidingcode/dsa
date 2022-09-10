@@ -1,11 +1,15 @@
 package entity;
 
+import java.util.Scanner;
+
 public class Account {
     private int accountID;
     private String username;
     private String password;
     private int access;
     
+    Scanner input = new Scanner(System.in);
+
     Account(){
 
     }

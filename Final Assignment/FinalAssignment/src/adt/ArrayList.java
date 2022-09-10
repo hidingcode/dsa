@@ -1,8 +1,6 @@
 package adt;
 
-import java.io.Serializable;
-
-public class ArrayList<T> implements ArrayListInterface<T>, Serializable {
+public class ArrayList<T> implements ArrayListInterface<T> {
 
     private T[] array;
     private int numberOfEntries;
@@ -125,7 +123,14 @@ public class ArrayList<T> implements ArrayListInterface<T>, Serializable {
     }
 
     @Override
-    public String getAllEntry() {
+    public boolean getAllEntry() {
         throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
+
+    @Override
+    public boolean edit() {
+      // TODO Auto-generated method stub
+      return false;
+    }
+
 }

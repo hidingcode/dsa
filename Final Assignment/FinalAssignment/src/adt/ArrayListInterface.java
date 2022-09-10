@@ -12,5 +12,6 @@ public interface ArrayListInterface<T> {
     public boolean isEmpty();
     public boolean isFull();
     
-    public String getAllEntry();
+    public boolean getAllEntry();
+    public boolean edit();
 }
