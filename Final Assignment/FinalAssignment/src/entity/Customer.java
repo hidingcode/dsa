@@ -1,9 +1,13 @@
 package entity;
 
-public class Customer extends Account{
+public class Customer<T> extends Account{
     private int phoneNo;
     private int point;
     private String address;
+
+    public Customer(){
+
+    }
 
     public Customer(String username, String password){
         super(username, password);

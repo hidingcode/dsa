@@ -5,33 +5,56 @@ import entity.Customer;
 import entity.Staff;
 import adt.ArrayListInterface;
 import adt.ArrayList;
+
+import adt.SortedArrayListInterface;
+import adt.SortedArrayList;
+import entity.Inventory;
+
 import java.util.Scanner;
+import java.util.Iterator;
 
 public class AccountControl {
 
     Scanner input = new Scanner(System.in);
 
-    ArrayListInterface<Account> accList = new ArrayList<Account>();
+    ArrayListInterface<Customer> cusList = new ArrayList<Customer>();
 
-    public void main(){
+    public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
         System.out.println("(1) Login \n"
                         +  "(2) Register \n");
         System.out.println("---------------------------------\n");
-        System.out.println("Enter the number to proceed: ");
+        System.out.print("Enter the number to proceed: ");
         int log = input.nextInt();
         switch(log){
             case 1:
-                loginProcess();
+                loginProcess(staff, customer, staffList, cusList);
                 break;
-            // case 2:
-            //     register(acclist, account); 
-            //     acclist.add(account);
-            //     break;
+            case 2:
+                register(customer, cusList); 
+                // while(cusIterator.hasNext()){
+                //     Customer customerList = cusIterator.next();
+                //     // System.out.println(customerList.getUsername());
+                //     if(cusIterator.hasNext()){
+                //         System.out.println(customerList.getUsername());
+                //     }
+                // }
+                break;
+            case 3:
+                Iterator<Customer> cusIterator = cusList.getIterator();
+                System.out.print("getEntry: ");
+                System.out.print(cusList.getEntry(cusList.getNumberOfEntries()).getAccountID());
+
+                // while(cusIterator.hasNext()){
+                //     Customer customerList = cusIterator.next();
+                    
+                //     System.out.println("\n" + customerList.getUsername());
+                // }
+                break;
         }
     }
 
     // isEmpty
-    public void loginProcess(){
+    public void loginProcess(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
         System.out.print("[--- Login Details ---]");
         System.out.print("\nUsername: ");
         String loginUsername = input.nextLine();
@@ -64,37 +87,33 @@ public class AccountControl {
     }
 
     // add // getEntry // isEmpty
-    public void registerProcess(){
-        System.out.print("[--- Register Details ---]");
+    public boolean register(Customer customer, ArrayListInterface<Customer> cusList){
+        System.out.print("[--- Register Details ---]\n");
         int registerAccID = 0;
         int registerAccess = 1;
-        System.out.print("\nUsername: ");
-        String registerUsername = input.nextLine();
+        System.out.print("Username: ");
+        String registerUsername = input.next();
         System.out.print("\nPassword: ");
-        String registerPassword = input.nextLine();
+        String registerPassword = input.next();
         System.out.print("\nPhone Number: ");
         int registerPhoneNo = input.nextInt();
         System.out.print("\nHome Address: ");
-        String registerAddress = input.nextLine();
+        String registerAddress = input.next();
 
-        register(registerAccID, registerUsername, registerPassword, registerAccess, registerPhoneNo, registerAddress);
+        System.out.println("\nRegister Successfully!");
+
+        return (cusList.add(customer = new Customer<>(registerAccID, registerUsername, registerPassword, registerAccess, registerPhoneNo, registerAddress)));
     }    
 
-    public String register(int regAccID, String regUsername, String regPassword, int regAccess, int regPhoneNo, String regAddress){
-        System.out.println("Register Successfully!");
-
-        return null;// (account = new AccountControl<>(registerUsername, registerPassword, registerPhoneNo, registerAddress));
-    }
-
     // getEntry
-    public String userProfile(int accID, int accAccess){
+    public String userProfile(Customer customer, ArrayListInterface<Customer> cusList, int accID, int accAccess){
         // display the users accountID array except accountID and account access
 
         System.out.println("(1) Edit Username \n"
                         +  "(2) Edit Password \n"
                         +  "(3) Edit Phone Number\n"
                         +  "(4) Edit Home Address \n");
-        System.out.println("Enter your choice: ");
+        System.out.print("Enter your choice: ");
         int choice = input.nextInt();
 
         // account.edit(choice, ?) 
@@ -105,8 +124,15 @@ public class AccountControl {
 
     // Staff edit users account by remove and add back to the position
     // Staff can view all users account
-    public String accountDB(int validAccountID, int validStaffID, int validAccAccess){
-        // display all users account list
+    public String accountDB(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList, int validAccountID, int validStaffID, int validAccAccess){
+        Iterator<Customer> cusIterator = cusList.getIterator();
+
+        // display all users account
+        while(cusIterator.hasNext()){
+            Customer customerList = cusIterator.next();
+            System.out.println(customerList.getUsername());
+        }     
+        // display all staff account
 
         return null;
     }
@@ -115,4 +141,12 @@ public class AccountControl {
     public void logout(){
         // account.clear();
     }
+
+    // public void update(ArrayListInterface<Account> accList, SortedArrayListInterface<Account> invList){
+    //     Iterator<Account> accIterator = invList.getIterator();
+    //     while(accIterator.hasNext()){
+    //         Account acc = accIterator.next();
+    //         System.out.println(acc.getUsername());
+    //     }
+    // }
 }
