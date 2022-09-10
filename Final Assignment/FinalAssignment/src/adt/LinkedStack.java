@@ -12,14 +12,21 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
     }
     // Adds a new entry to the top of the stack.
     @Override
-    public boolean push(T newEntry) {
-        // Create new node temp
-        Node tempNode = new Node();
-        tempNode.data = newEntry;
-        tempNode.next = topNode;
-        topNode = tempNode;
-        numberOfEntries++;
-        return true; 
+    public boolean push(T newEntry){
+        // Check if the top node match the entry
+        if(!isMatch(newEntry)){
+            System.out.println("Duplicate input detected");
+            return false;
+        }
+        else{
+            // Create new temp node
+            Node tempNode = new Node();
+            tempNode.data = newEntry;
+            tempNode.next = topNode;
+            topNode = tempNode;
+            numberOfEntries++;
+        return true;
+        } 
     }
     // Removes and returns the stack's top entry.
     @Override
@@ -30,8 +37,12 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
             // Decrease the number of entries by 1
             numberOfEntries--;
             return true;
-       } 
-       return false;
+       }       
+       else{
+            System.out.println("Stack is empty");    
+            return false;
+       }
+
     }
     // Retrieves the stack's top entry.
     @Override
@@ -77,7 +88,7 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
     }
 
     // Chech if the entry match the topNode 
-    public boolean match(T anEntry){
+    public boolean isMatch(T anEntry){
         if(topNode.data == anEntry){
             return true;
         }
@@ -86,10 +97,12 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         }
     }
 
+    // Get Iterator
     public Iterator<T> getIterator(){
         return new StackIterator();
     }
     
+    // Iterator is used to loop through the stack 
     private class StackIterator implements Iterator<T>{
         private Node currentNode = topNode;
         public boolean hasNext(){
@@ -104,7 +117,8 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
         return currentData;
         }
     }
-
+    
+    // Node 
     private class Node{
         // Data
         T data;

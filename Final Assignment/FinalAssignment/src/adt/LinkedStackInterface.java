@@ -11,6 +11,6 @@ public interface LinkedStackInterface<T> {
   public void clear();
   public int getNumberOfEntries();
   public T searchFromPosition(int position);
-  // public boolean match(T anEntry);
+  public boolean isMatch(T anEntry);
   public Iterator<T> getIterator();
 }
