@@ -1,13 +1,6 @@
 package adt;
-
 import java.util.Iterator;
 
-/**
- * QueueInterface.java An interface for the ADT queue.
- *
- * @author Frank M. Carrano
- * @version 2.0
- */
 public interface LinkedQueueInterface<T> {
   public Iterator<T> getIterator();
 

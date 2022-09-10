@@ -1,5 +1,4 @@
 package adt;
-
 import java.util.Iterator;
 
 public class LinkedQueue<T> implements LinkedQueueInterface<T> {
