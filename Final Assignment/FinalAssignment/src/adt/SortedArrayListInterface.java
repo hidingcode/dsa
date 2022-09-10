@@ -12,14 +12,8 @@ public interface SortedArrayListInterface<T>{
     //Check if a certain value is contained in the list
     public boolean contain(String invCode,String anEntry);
     
-    //Clear the list
-    public void clear();
-    
     //Return the number of entries in the list
     public int getNumberOfEntries();
-    
-    //Check if list is empty
-    public boolean isEmpty();
 
     public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory);
 
