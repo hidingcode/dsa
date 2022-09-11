@@ -84,7 +84,13 @@ public class LinkedStack<T> implements LinkedStackInterface<T> {
 
     // Get the Number Of Entries
     public int getNumberOfEntries() {
-        return numberOfEntries;
+        if(isEmpty()){
+            return 0;
+        }
+
+        else{
+            return numberOfEntries;
+        }    
     }
 
     // Chech if the entry match the topNode 
