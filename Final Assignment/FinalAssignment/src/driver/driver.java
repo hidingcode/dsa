@@ -38,18 +38,20 @@ public class driver {
         stocks.outStock(invList, inventory2, stocks, true, 25);
         stocks.main(invList, inventory, stocks);
         
-        // ArrayListInterface<Customer> cusList = new ArrayList<>();
-        // ArrayListInterface<Staff> staffList = new ArrayList<>();
-        // Staff staff; 
-        // Customer customer;
-        // staffList.add(staff = new Staff(1101, "waimin", "waimin", 2, 201));
-        // staffList.add(staff = new Staff(1102, "quack", "quack", 2, 202));
-        // cusList.add(customer = new Customer(1001, "nengfu14", "nengfu14", 1, 1234567890, "GAY"));
-        // cusList.add(customer = new Customer(1002, "YKP", "YKP", 1, 1234567890, "GAY2"));
-        // cusList.add(customer = new Customer(1003, "Pikachu", "Pikachu", 1, 1234567890, "GAY3"));
-        // cusList.add(customer = new Customer(1004, "YWY", "YWY", 1, 1234567890, "GAY4"));
-        // AccountControl accControl = new AccountControl();
-        // accControl.main(staff, customer, staffList, cusList);
+        ArrayListInterface<Customer> cusList = new ArrayList<>();
+        ArrayListInterface<Staff> staffList = new ArrayList<>();
+        ArrayListInterface<Customer> clogList = new ArrayList<Customer>();
+        ArrayListInterface<Staff> slogList = new ArrayList<Staff>();
+        Staff staff;
+        Customer customer;
+        staffList.add(staff = new Staff(1101, "waimin", "waimin", 2, 201));
+        staffList.add(staff = new Staff(1102, "quack", "quack", 2, 202));
+        cusList.add(customer = new Customer(1001, "nengfu14", "nengfu14", 1, 1234567890, "GAY"));
+        cusList.add(customer = new Customer(1002, "YKP", "YKP", 1, 1234567890, "GAY2"));
+        cusList.add(customer = new Customer(1003, "Pikachu", "Pikachu", 1, 1234567890, "GAY3"));
+        cusList.add(customer = new Customer(1004, "YWY", "YWY", 1, 1234567890, "GAY4"));
+        AccountControl accControl = new AccountControl();
+        accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
         
         //  
