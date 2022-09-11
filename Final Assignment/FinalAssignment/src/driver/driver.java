@@ -38,6 +38,8 @@ public class driver {
         
         ArrayListInterface<Customer> cusList = new ArrayList<>();
         ArrayListInterface<Staff> staffList = new ArrayList<>();
+        ArrayListInterface<Customer> clogList = new ArrayList<Customer>();
+        ArrayListInterface<Staff> slogList = new ArrayList<Staff>();
         Staff staff;
         Customer customer;
         staffList.add(staff = new Staff(1101, "waimin", "waimin", 2, 201));
@@ -47,7 +49,7 @@ public class driver {
         cusList.add(customer = new Customer(1003, "Pikachu", "Pikachu", 1, 1234567890, "GAY3"));
         cusList.add(customer = new Customer(1004, "YWY", "YWY", 1, 1234567890, "GAY4"));
         AccountControl accControl = new AccountControl();
-        accControl.main(staff, customer, staffList, cusList);
+        accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
         
         //  

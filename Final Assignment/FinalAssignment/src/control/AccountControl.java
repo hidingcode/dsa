@@ -17,73 +17,55 @@ public class AccountControl {
 
     Scanner input = new Scanner(System.in);
 
-    ArrayListInterface<Customer> cusList = new ArrayList<Customer>();
+    ArrayListInterface<Customer> clogList = new ArrayList<Customer>();
+    ArrayListInterface<Staff> slogList = new ArrayList<Staff>();
 
-    public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
+    public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList, ArrayListInterface<Customer> clogList, ArrayListInterface<Staff> slogList){
         System.out.println("(1) Login \n"
-                        +  "(2) Register \n");
-        System.out.println("---------------------------------\n");
+                        +  "(2) Register ");
+        System.out.println("---------------------------------");
         System.out.print("Enter the number to proceed: ");
         int log = input.nextInt();
         switch(log){
             case 1:
-                loginProcess(staff, customer, staffList, cusList);
+                login(staff, customer, staffList, cusList, clogList, slogList);
                 break;
             case 2:
                 register(customer, cusList); 
-                // while(cusIterator.hasNext()){
-                //     Customer customerList = cusIterator.next();
-                //     // System.out.println(customerList.getUsername());
-                //     if(cusIterator.hasNext()){
-                //         System.out.println(customerList.getUsername());
-                //     }
-                // }
                 break;
             case 3:
                 Iterator<Customer> cusIterator = cusList.getIterator();
-                System.out.print("getEntry: ");
-                System.out.print(cusList.getEntry(cusList.getNumberOfEntries()).getAccountID());
+                Iterator<Staff> staffIterator = staffList.getIterator();
 
-                // while(cusIterator.hasNext()){
-                //     Customer customerList = cusIterator.next();
+                // display all users account
+                while(cusIterator.hasNext()){
+                    Customer clogList = cusIterator.next();
+                    clogList.add(customer = new Customer<>(cusList.getUsername(), cusList.getPassword()));
+                    System.out.println(clogList.getUsername());
+                }   
+                while(staffIterator.hasNext()){
+                    Staff slogList = staffIterator.next();
+                    slogList.add(staff = new Staff<>(staffList.getUsername(), staffList.getPassword()));
                     
-                //     System.out.println("\n" + customerList.getUsername());
-                // }
+                }        
                 break;
         }
     }
 
     // isEmpty
-    public void loginProcess(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
-        System.out.print("[--- Login Details ---]");
+    public void login(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList, ArrayListInterface<Customer> clogList, ArrayListInterface<Staff> slogList){
+        System.out.print("[--- Login Details ---]\n");
         System.out.print("\nUsername: ");
-        String loginUsername = input.nextLine();
-        System.out.print("\nPassword: ");
-        String loginPassword = input.nextLine();
+        String loginUsername = input.next();
+        System.out.print("Password: ");
+        String loginPassword = input.next();
 
-        // // contains // getEntry
-        // if(loginUsername && loginPassword != /*accDB */){
-        //     System.out.println("Username or Password Error, Please Try Agian!");
-        //     loginProcess();
-        // } else {
-        //     login(loginUsername, loginPassword);
-        // }
-        
-    }
-
-    public void login(String logUsername, String logPassword){
-        // get accID and access
-
-        // // check isStaff or isCustomer
-        // switch(accessType){
-        //     case 1: // Customer
-        //         // to menu page
-        //         break;
-        //     case 2: // Staff
-        //         accountDB(int getAccID, int getStaffID, int getAccAccess);
-        //         break;
-        // }
-
+        if(loginUsername.isEmpty() || loginPassword.isEmpty()){
+            System.out.println("Please enter your username and password!");
+            login(staff, customer, staffList, cusList, clogList, slogList);
+        } else {
+            System.out.println("Login Successfully!");
+        }
     }
 
     // add // getEntry // isEmpty
@@ -93,15 +75,14 @@ public class AccountControl {
         int registerAccess = 1;
         System.out.print("Username: ");
         String registerUsername = input.next();
-        System.out.print("\nPassword: ");
+        System.out.print("Password: ");
         String registerPassword = input.next();
-        System.out.print("\nPhone Number: ");
+        System.out.print("Phone Number: ");
         int registerPhoneNo = input.nextInt();
-        System.out.print("\nHome Address: ");
+        System.out.print("Home Address: ");
         String registerAddress = input.next();
 
         System.out.println("\nRegister Successfully!");
-
         return (cusList.add(customer = new Customer<>(registerAccID, registerUsername, registerPassword, registerAccess, registerPhoneNo, registerAddress)));
     }    
 

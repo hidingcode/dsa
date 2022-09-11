@@ -81,12 +81,10 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public boolean contains(T anEntry) {
-        boolean found = false;
-        for (int index = 0; !found && (index < numberOfEntries); index++) {
-            if (anEntry.equals(array[index])) {
-                found = true;
-            }
+    public boolean contains(String givenInput, String existData) {
+        boolean found = true;
+        if(givenInput.equals(existData)){
+            found = false;
         }
         return found;
     }
@@ -127,12 +125,6 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     @Override
     public boolean getAllEntry() {
         throw new UnsupportedOperationException("Not supported yet.");
-    }
-
-    @Override
-    public boolean edit() {
-        // TODO Auto-generated method stub
-        return false;
     }
 
     @Override
