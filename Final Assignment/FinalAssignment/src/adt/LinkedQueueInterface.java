@@ -38,4 +38,4 @@ public interface LinkedQueueInterface<T> {
    * Task: Removes all entries from the queue.
    */
   public void clear();
-} // end QueueInterface
+}
