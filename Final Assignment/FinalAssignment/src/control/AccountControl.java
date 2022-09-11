@@ -55,7 +55,7 @@ public class AccountControl<T> {
                 if(loginPassword.equals(customerList.getPassword())){
                     currentAccount =  cusList.getIndexNumber(customerList) + 1;
                     
-                    currUsername = cusList.getEntry(6).getUsername();
+                    currUsername = cusList.getEntry(currentAccount).getUsername();
                     currPassword = cusList.getEntry(currentAccount).getPassword();
                     currPhoneNo = cusList.getEntry(currentAccount).getPhoneNo();
                     currAddress = cusList.getEntry(currentAccount).getAddress();
