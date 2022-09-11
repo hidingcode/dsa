@@ -14,7 +14,7 @@ public class Stack<T> implements StackInterface<T> {
     @Override
     public boolean push(T newEntry){
         // Check if the top node match the entry
-        if(!isMatch(newEntry)){
+        if(isMatch(newEntry)){
             System.out.println("Duplicate input detected");
             return false;
         }
@@ -95,8 +95,14 @@ public class Stack<T> implements StackInterface<T> {
 
     // Chech if the entry match the topNode 
     public boolean isMatch(T anEntry){
-        if(topNode.data == anEntry){
-            return true;
+        
+        if(!isEmpty()){
+            if(topNode.data == anEntry){
+                return true;
+            }
+            else{
+                return false;
+            }
         }
         else{
             return false;

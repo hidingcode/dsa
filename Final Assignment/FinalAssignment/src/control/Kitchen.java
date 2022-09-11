@@ -124,7 +124,7 @@ public class Kitchen {
     public void SearchChefUI(){
         System.out.println("The 'n' punch in chef");
         System.out.println();
-        System.out.println("n: ");
+        System.out.print("n: ");
         Scanner sc = new Scanner(System.in);
         int punchInSequence = sc.nextInt();
         // Get the result ChefID

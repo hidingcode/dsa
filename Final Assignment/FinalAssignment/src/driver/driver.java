@@ -15,7 +15,6 @@ import entity.Staff;
 
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Stack;
 
 import control.Kitchen;
 // import control.AccountControl;
@@ -58,10 +57,6 @@ public class driver {
 
         Kitchen kitchen = new Kitchen();
         // Punch In chef into the stack
-        kitchen.PunchIn("C0001", "ykp");
-        kitchen.PunchIn("C0002", "ywy");
-        kitchen.PunchIn("C0003", "ytl");
-        kitchen.PunchIn("C0004", "cxn");
         kitchen.Main();      
     }
 }
