@@ -2,7 +2,7 @@ package entity;
 
 import java.time.LocalDate;
 
-public class Inventory<T> implements Comparable<Inventory>{ 
+public class Inventory implements Comparable<Inventory>{ 
     private String invCode;
     private String invName;
     private int quantity;
