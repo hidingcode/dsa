@@ -23,17 +23,13 @@ import java.util.Scanner;
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
+import control.MenuDetail;
+import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
-        ArrayListInterface<Menu> menuList = new ArrayList<>();
-        Menu menu;
-        MenuDetail menu = new MenuDetail();
-        menuList.add(menu = new Menu("M001","Black pepper Steak","Steak with black pepper","Inv001",45));
-        menuList.add(menu = new Menu("M002","Black pepper Pork","Pork with black pepper","Inv002", 45));
-        menuList.add(menu = new Menu("M001","Black pepper Steak","Steak with black pepper","Inv001", 45));
-
-
+        MenuDetail menuDetail = new MenuDetail();
+        menuDetail.Main();
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
@@ -67,12 +63,12 @@ public class driver {
         // AccountControl accControl = new AccountControl();
         // accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
-        Kitchen kitchen = new Kitchen();
+        //Kitchen kitchen = new Kitchen();
         // Punch In chef into the stack
-        kitchen.PunchIn("C0001", "ykp");
-        kitchen.PunchIn("C0002", "ywy");
-        kitchen.PunchIn("C0003", "ytl");
-        kitchen.PunchIn("C0004", "cxn");
-        kitchen.Main();      
+        //kitchen.PunchIn("C0001", "ykp");
+        //kitchen.PunchIn("C0002", "ywy");
+        //kitchen.PunchIn("C0003", "ytl");
+        //kitchen.PunchIn("C0004", "cxn");
+        //kitchen.Main();      
     }
 }
