@@ -6,16 +6,19 @@ import adt.StackInterface;
 import adt.Stack;
 import adt.ArrayListInterface;
 import adt.ArrayList;
+import adt.LinkedQueue;
+import adt.LinkedQueueInterface;
 
 import entity.Chef;
 import entity.Inventory;
 import entity.Account;
 import entity.Customer;
 import entity.Staff;
+import entity.Menu;
+import entity.Order;
 
 import java.util.Iterator;
 import java.util.Scanner;
-import java.util.Stack;
 
 import control.Kitchen;
 // import control.AccountControl;
@@ -23,6 +26,14 @@ import control.StockControl;
 
 public class driver {
     public static void main(String[] args) {
+        ArrayListInterface<Menu> menuList = new ArrayList<>();
+        Menu menu;
+        MenuDetail menu = new MenuDetail();
+        menuList.add(menu = new Menu("M001","Black pepper Steak","Steak with black pepper","Inv001",45));
+        menuList.add(menu = new Menu("M002","Black pepper Pork","Pork with black pepper","Inv002", 45));
+        menuList.add(menu = new Menu("M001","Black pepper Steak","Steak with black pepper","Inv001", 45));
+
+
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
