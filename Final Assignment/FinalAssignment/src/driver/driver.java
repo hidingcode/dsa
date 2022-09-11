@@ -53,34 +53,12 @@ public class driver {
         AccountControl accControl = new AccountControl();
         accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
-        
-        //  
-        // Kitchen kitchen = new Kitchen();
-        // kitchen.Main();
-        // Chef chef;
-        // chef = new Chef("c1", "lyc");
-        // chefShift.push(chef);
-        // System.out.println(chef.getChefName());
-        // chef = new Chef("c1", "ykp");
-        // chefShift.push(chef);
-        //want to search ykp
-
-//         kitchen.PunchIn("C0001", "ykp", "Noob");
-//         kitchen.PunchIn("C0002", "ywy", "Noob");
-
-        // Inventory inventory = new Inventory(req_invCode, req_invName, req_quantity, req_price);
-        // Iterator<Inventory> invIterator = invList.getIterator();
-        // while(invIterator.hasNext()){
-        //     Inventory inv = invIterator.next();
-        //     System.out.printf(inv.getInvCode()+", "+ inv.getInvName()+", "+ inv.getQuantity()+", "+ inv.getPrice()+ ", "+inv.getDate()+"\n");
-            
-        //     if (inv.getInvCode().equals(inventory.getInvCode())){
-        //         System.out.println("Existed");
-        //     }
-            
-        // }  
-              
-    //    Kitchen kitchen = new Kitchen();
-    //    kitchen.Main();
+        Kitchen kitchen = new Kitchen();
+        // Punch In chef into the stack
+        kitchen.PunchIn("C0001", "ykp");
+        kitchen.PunchIn("C0002", "ywy");
+        kitchen.PunchIn("C0003", "ytl");
+        kitchen.PunchIn("C0004", "cxn");
+        kitchen.Main();      
     }
 }
