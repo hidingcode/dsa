@@ -46,7 +46,7 @@ public class driver {
 
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
-        // stocks.main(invList, inventory, stocks);
+        stocks.main(invList, inventory, stocks);
         
 
 
