@@ -14,6 +14,7 @@ public class Menu {
     public Menu(String MenuID, String MenuName, String MenuDesc, String InvCode, double MenuPrice){
         this.MenuID = MenuID;
         this.MenuName = MenuName;
+        this.MenuDesc = MenuDesc;
         this.InvCode = InvCode;
         this.MenuPrice = MenuPrice;
     }
@@ -40,7 +41,7 @@ public class Menu {
         this.MenuName = menuName;
     }
     public void setMenuDesc(String menuDesc) {
-        this.MenuDesc = menuDesc;
+        MenuDesc = menuDesc;
     }
     public void setInvCode(String invCode) {
         InvCode = invCode;

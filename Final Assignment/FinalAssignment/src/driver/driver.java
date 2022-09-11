@@ -28,8 +28,9 @@ import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
-        MenuDetail menuDetail = new MenuDetail();
-        menuDetail.Main();
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.Main();
+        
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
@@ -43,7 +44,7 @@ public class driver {
 
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
-        // stocks.main(invList, inventory, stocks);
+        stocks.main(invList, inventory, stocks);
         
 
 
