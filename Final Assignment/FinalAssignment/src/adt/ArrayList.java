@@ -71,22 +71,25 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public T getEntry(int givenPosition) {
-        T result = null;
-
-        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries)) {
-            result = array[givenPosition - 1];
+    public boolean contains(T anEntry) {
+      boolean found = false;
+      for (int index = 0; !found && (index < numberOfEntries); index++) {
+        if (anEntry.equals(array[index])) {
+          found = true;
         }
-        return result;
+      }
+      return found;
     }
 
     @Override
-    public boolean contains(String givenInput, String existData) {
-        boolean found = true;
-        if(givenInput.equals(existData)){
-            found = false;
+    public T getEntry(int givenPosition) {
+        T result = null;
+    
+        if ((givenPosition >= 1) && (givenPosition <= numberOfEntries)) {
+            result = array[givenPosition - 1];
         }
-        return found;
+    
+        return result;
     }
 
     @Override
@@ -97,11 +100,6 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     @Override
     public boolean isEmpty() {
         return numberOfEntries == 0;
-    }
-
-    @Override
-    public boolean isFull() {
-        return numberOfEntries == array.length;
     }
 
     private void createAccount(int newPosition) {
@@ -123,8 +121,21 @@ public class ArrayList<T> implements ArrayListInterface<T> {
     }
 
     @Override
-    public boolean getAllEntry() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public int getIndexNumber(T anEntry){
+        int entryNumber = -1;
+        for(int index = 0; entryNumber == -1 && index < numberOfEntries; index++){
+            if(anEntry.equals(array[index])){
+                entryNumber = index;
+            }
+        }
+        return entryNumber;
+    }
+
+    @Override
+    public void getAllEntry(){
+        for(int index = 0; index < numberOfEntries; index++){
+            System.out.println(array[index]);
+        }
     }
 
     @Override

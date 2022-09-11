@@ -8,12 +8,12 @@ public interface ArrayListInterface<T> {
     public T remove(int givenPosition);
     public void clear();
     public boolean replace(int givenPosition, T newEntry);
+    public boolean contains(T anEntry);
     public T getEntry(int givenPosition);
-    public boolean contains(String givenInput, String existData);
     public int getNumberOfEntries();
     public boolean isEmpty();
-    public boolean isFull();
     public Iterator<T> getIterator();
-    
-    public boolean getAllEntry();
+
+    public int getIndexNumber(T anEntry);
+    public void getAllEntry();
 }

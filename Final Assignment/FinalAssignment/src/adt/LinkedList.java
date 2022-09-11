@@ -1,6 +1,5 @@
 // package adt;
 
-<<<<<<< HEAD
 import org.w3c.dom.Node;
 
 public class LinkedList<T> implements LinkedListInterface<T>{
@@ -198,8 +197,3 @@ public class LinkedList<T> implements LinkedListInterface<T>{
         }
     }
 }
-=======
-// public class LinkedList<T> implements LinkedListInterface<T>{
-    
-// }
->>>>>>> 600bfda5a72c416abaa8904a81283cac6e3c0292

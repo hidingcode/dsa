@@ -23,27 +23,32 @@ import java.util.Scanner;
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
-import control.MenuDetail;
 import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
-        MenuDetail menuDetail = new MenuDetail();
-        menuDetail.Main();
-        // SortedListInterface<Inventory> invList = new SortedList<>();   
-        // Inventory inventory;
+        ArrayListInterface<Menu> menuList = new ArrayList<Menu>();
+        ArrayListInterface<Order> orderList = new ArrayList<Order>();
+        SortedListInterface<Inventory> invList = new SortedList<>();  
+        Inventory inventory;
+        StockControl stocks = new StockControl();
+        invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
+        invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
+        invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
+        invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
+        invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
+        invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30)); 
+        // stocks.update(invList, inventory, false, 0, false);
+        // stocks.main(invList, inventory, stocks);
+
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.Main(menuList, orderList, invList);
+
+
         // StockControl stocks = new StockControl();
-        // invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
-        // invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
-        // invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
-        // invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
-        // invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
-        // invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
-
-
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
-        stocks.main(invList, inventory, stocks);
+        
         
 
 

@@ -1,6 +1,6 @@
 package entity;
 
-public class Staff extends Account {
+public class Staff<T> extends Account {
     private int staffID;
 
     public Staff(String username, String password){
@@ -18,5 +18,10 @@ public class Staff extends Account {
     
     public void setStaffID(int staffID){
         this.staffID = staffID;
+    }
+
+    @Override
+    public String toString(){
+        return super.toString()+ "\tStaffID\n" + "\n" +getAccountID() + "\t" + getUsername() + "\t" +getPassword() + "\t" + getAccess() + "\t" + getStaffID();
     }
 }
