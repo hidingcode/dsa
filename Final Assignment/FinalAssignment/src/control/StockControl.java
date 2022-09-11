@@ -3,15 +3,15 @@ package control;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.Scanner;
-import adt.SortedArrayList;
+import adt.SortedList;
 import entity.Inventory;
 
-import adt.SortedArrayListInterface;
+import adt.SortedListInterface;
 
 public class StockControl{ 
 
     //a main function will be executed at the beginning of the program to let user to select their options
-    public void main(SortedArrayListInterface<Inventory> invList, Inventory inventory, StockControl stock){   
+    public void main(SortedListInterface<Inventory> invList, Inventory inventory, StockControl stock){   
         Scanner input = new Scanner(System.in);
         System.out.print(
             "Inventory section: \n"+
@@ -57,12 +57,34 @@ public class StockControl{
 
                     // 's' can call searching function, to search the specific inventory in the list
                     case 's':
+                        //Create an Iterator object and using the SortedArrayListInterface to create ListIterator object
+                        Iterator<Inventory> invIterator = invList.getIterator();
+                        boolean isFound = false;
                         System.out.println("\nSearching section:");
-                        //if the searching return false, which mean the searching inventory is not exists in the list
-                        //Otherwise the searching inventory will display for the user
-                        if (!invList.Searching(invList, inventory)){
-                            System.out.println("does not exists!");
+                        //Ask for user input an inventory name for searching
+                        Scanner search = new Scanner(System.in);
+                        System.out.print("Stock name: ");
+                        String stockName = search.nextLine();
+                        
+                        //Check if the list have the next values
+                        while(invIterator.hasNext()){
+                            // Create an inventory object, and calling the next() function using Iterator object
+                            // So that now we can calling the inventory object one by one from the list until there is no next object
+                            Inventory inv = invIterator.next();
+                            //Check if the searching item in the list
+                            if (invList.contain(inv.getInvName(), stockName)){
+                                //Check the item is in the object or not
+                                if (invList.Searching(invList, inv) != null){
+                                    isFound = true;
+                                    System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
+                                    System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
+                                }
+                            }
                         }
+                        if(!isFound){
+                            System.out.println("【"+stockName+"】"+" does not exists!");
+                        }
+
                         break;
                     
                     // 'c' can call function to clear the sorted array list
@@ -90,7 +112,7 @@ public class StockControl{
     }
 
     //This function is to display the inventory object's values in the list
-    public boolean stockList(SortedArrayListInterface<Inventory> invList, Inventory inventory, StockControl stock){
+    public boolean stockList(SortedListInterface<Inventory> invList, Inventory inventory, StockControl stock){
         //Create an Iterator object and using the SortedArrayListInterface to create ListIterator object
         Iterator<Inventory> invIterator = invList.getIterator();
         System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
@@ -129,12 +151,12 @@ public class StockControl{
 
     //outStock function is to allow the Order() entity make changes to the inventory list
     //if the order is placed successfully, the foods used by the menu will return to the order, and then the order will call the outStock() function, to pass which inventory being used and update the list
-    public void outStock(SortedArrayListInterface<Inventory> invList, Inventory inventory, StockControl stock, boolean outStock, int qty){
+    public void outStock(SortedListInterface<Inventory> invList, Inventory inventory, StockControl stock, boolean outStock, int qty){
         stock.update(invList, inventory, outStock, qty, false);
     }
 
     //restock function is to add an existing stock back to the list by input how many quantity and how much money to restock
-    public void reStock(SortedArrayListInterface<Inventory> invList, Inventory invRestock){
+    public void reStock(SortedListInterface<Inventory> invList, Inventory invRestock){
         Scanner input = new Scanner(System.in);
         System.out.println("How many you want to restock?: ");
         int restockQty = input.nextInt();
@@ -147,7 +169,7 @@ public class StockControl{
     }
 
     //Update the list to the latest list
-    public void update(SortedArrayListInterface<Inventory> invList, Inventory currentObj, boolean outStock, int qty, boolean drop){
+    public void update(SortedListInterface<Inventory> invList, Inventory currentObj, boolean outStock, int qty, boolean drop){
         //Create an Iterator object and using the SortedArrayListInterface to create ListIterator object
         Iterator<Inventory> invIterator = invList.getIterator();
         //variables for the if condition
@@ -209,7 +231,7 @@ public class StockControl{
     
     // This is the function that to create an new inventory object using the same inventory object.
     public Inventory addNew(Inventory inventory, String invCode, String invName, int invQty, double invPrice){
-        return (inventory = new Inventory<>(invCode, invName, invQty, invPrice));
+        return (inventory = new Inventory(invCode, invName, invQty, invPrice));
     }
 
 }
