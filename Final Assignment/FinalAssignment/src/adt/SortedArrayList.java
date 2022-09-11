@@ -18,7 +18,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         array = (T[]) new Comparable[initialCapacity];
     }
 
-    //add a new entry
+    //add a new entry and sorting the values into the array
     public boolean add(T newEntry){
         int i = 0;
         while (i < numberOfEntries && newEntry.compareTo(array[i]) > 0){
@@ -30,6 +30,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         return true;
     }
 
+    //any new entry coming in, this function will move the existed values in the array forward, to let new entry to insert into the first index of the array
     private void moveForward(int insertPosition) {
         int newIndex = insertPosition - 1;
         int lastIndex = numberOfEntries - 1;    
@@ -51,6 +52,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         }
     }
     
+    //any entry being removed, this function will move the existed values in the array backward, to ensure first index of the array is not empty
     private void moveBackward(int removePosition){
         int removedIndex = removePosition;
         int lastIndex = numberOfEntries - 1;
@@ -60,7 +62,7 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
     }
 
     
-    //Check if a certain value is contained in the list
+    //Check if a certain values is contained in the list
     public boolean contain(String invCode, String currentCode){
         if (invCode.equals(currentCode)){
             return true;
@@ -73,40 +75,52 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         return numberOfEntries;
     }
 
-    @Override
+    //Clear the array
     public void clear(){
         numberOfEntries = 0;
     }
 
-    @Override
+    //Check the list is empty or not
     public boolean isEmpty(){
         return numberOfEntries == 0;
     }
 
+    //Searching the inventory in the inventory list, if existed will return true, otherwise will return false
     public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory){
+        //Create an Iterator object and using the SortedArrayListInterface to create ListIterator object
         Iterator<Inventory> invIterator = invList.getIterator();
+        //Ask for user input an inventory name for searching
         Scanner input = new Scanner(System.in);
         System.out.print("Stock name:");
         String stockName = input.nextLine();
+        //Create an new inventory object for storing user's looking inventory
         Inventory findingStock = new Inventory<>();
         findingStock.setInvName(stockName);
+        //Check if the list have the next values
         while(invIterator.hasNext()){
+            // Create an inventory object, and calling the next() function using Iterator object
+            // So that now we can calling the inventory object one by one from the list until there is no next object
             Inventory inv = invIterator.next();
+            //Check whether the user's looking inventory inside the list or not
+            //If existed, then will print out the object's values to display
             if (inv.getInvName().equals(findingStock.getInvName())){
+                //Styling the print out in order to make it more tidy and easy to read
                 System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
                 System.out.printf("%-10s %-15s %-15d %-15.2f %-10s\n", inv.getInvCode(), inv.getInvName(), inv.getQuantity(), inv.getPrice(), inv.getDate());
                 return true;
             }
         }
-        
+        //For display purpose
         System.out.print("【"+stockName+"】");
         return false;
     }
 
+    //A method to create a ListIterator object
     public Iterator<T> getIterator(){
         return new ListIterator();
     }
     
+    //A class to get the object from the array list.
     private class ListIterator implements Iterator<T>{
         int nextIndex = 0;
 

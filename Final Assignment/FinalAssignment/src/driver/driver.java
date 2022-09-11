@@ -19,22 +19,24 @@ import java.util.Stack;
 
 import control.Kitchen;
 import control.AccountControl;
+import control.StockControl;
 
 public class driver {
     public static void main(String[] args) {
-        // SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
-        // Inventory inventory;
-        // invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
-        // invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
-        // invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
-        // invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
-        // invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
-        // invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
+        SortedArrayListInterface<Inventory> invList = new SortedArrayList<>();   
+        Inventory inventory;
+        StockControl stocks = new StockControl();
+        invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
+        invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
+        invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
+        invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
+        invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
+        invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
 
 
-        // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
-        // inventory.outStock(invList, inventory2, true, 25);
-        // inventory.main(invList, inventory);
+        Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
+        stocks.outStock(invList, inventory2, stocks, true, 25);
+        stocks.main(invList, inventory, stocks);
         
         ArrayListInterface<Customer> cusList = new ArrayList<>();
         ArrayListInterface<Staff> staffList = new ArrayList<>();
