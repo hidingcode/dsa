@@ -9,12 +9,11 @@ public interface ArrayListInterface<T> {
     public void clear();
     public boolean replace(int givenPosition, T newEntry);
     public T getEntry(int givenPosition);
-    public boolean contains(T anEntry);
+    public boolean contains(String givenInput, String existData);
     public int getNumberOfEntries();
     public boolean isEmpty();
     public boolean isFull();
     public Iterator<T> getIterator();
     
     public boolean getAllEntry();
-    public boolean edit();
 }
