@@ -1,8 +1,7 @@
 package entity;
 
 public class Customer<T> extends Account{
-    private int phoneNo;
-    private int point;
+    private String phoneNo;
     private String address;
 
     public Customer(){
@@ -13,13 +12,13 @@ public class Customer<T> extends Account{
         super(username, password);
     }
 
-    public Customer(int accountID, String username, String password, int access, int phoneNo, String address){
+    public Customer(int accountID, String username, String password, int access, String phoneNo, String address){
         super(accountID, username, password, access);
         this.phoneNo = phoneNo;
         this.address = address;
     }
     
-    public int getPhoneNo(){
+    public String getPhoneNo(){
         return phoneNo;
     }
 
@@ -27,7 +26,7 @@ public class Customer<T> extends Account{
         return address;
     }
     
-    public void setPhoneNo(int phoneNo){
+    public void setPhoneNo(String phoneNo){
         this.phoneNo = phoneNo;
     }
     
@@ -37,6 +36,6 @@ public class Customer<T> extends Account{
     
     @Override
     public String toString(){
-        return "None";
+        return super.toString()+ "\tPhone-Number\tHome-Address\n" + getAccountID() + "\t" + getUsername() + "\t" + getPassword() + "\t" + getAccess() + "\t" + getPhoneNo() + "\t" + getAddress();
     }
 }

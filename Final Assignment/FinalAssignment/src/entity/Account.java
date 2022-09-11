@@ -57,9 +57,9 @@ public class Account {
     public void setAccess(int access){
         this.access = access;
     }
-    
+
     @Override
     public String toString(){
-        return "None";
+        return "Account-ID\tUsername\tPassword\tAccess";
     }
 }
