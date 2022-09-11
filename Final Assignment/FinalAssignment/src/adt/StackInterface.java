@@ -3,7 +3,7 @@ package adt;
 
 import java.util.Iterator;
 
-public interface LinkedStackInterface<T> {
+public interface StackInterface<T> {
   public boolean push(T newEntry);
   public boolean pop();
   public T peek();

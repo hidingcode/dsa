@@ -1,15 +1,15 @@
 // Lim Yong Chien
 package control;
 
-import adt.LinkedStack;
-import adt.LinkedStackInterface;
+import adt.Stack;
+import adt.StackInterface;
 import entity.Chef;
 
 import java.util.Iterator;
 import java.util.Scanner;
 
 public class Kitchen {  
-    LinkedStackInterface<Chef> chefShift = new LinkedStack<Chef>();
+    StackInterface<Chef> chefShift = new Stack<Chef>();
     
     public void GetOrder(){
         UpdateChef();

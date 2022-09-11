@@ -17,9 +17,10 @@
 
 //     Scanner input = new Scanner(System.in);
 
-//     ArrayListInterface<Customer> clogList = new ArrayList<Customer>();
-//     ArrayListInterface<Staff> slogList = new ArrayList<Staff>();
+    ArrayListInterface<Customer> clogList = new ArrayList<Customer>();
+    ArrayListInterface<Staff> slogList = new ArrayList<Staff>();
 
+<<<<<<< HEAD
 //     public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList, ArrayListInterface<Customer> clogList, ArrayListInterface<Staff> slogList){
 //         System.out.println("(1) Login \n"
 //                         +  "(2) Register ");
@@ -46,6 +47,38 @@
 //                 while(staffIterator.hasNext()){
 //                     Staff slogList = staffIterator.next();
 //                     slogList.add(staff = new Staff<>(staffList.getUsername(), staffList.getPassword()));
+=======
+    public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList, ArrayListInterface<Customer> clogList, ArrayListInterface<Staff> slogList){
+        System.out.println("(1) Login \n"
+                        +  "(2) Register ");
+        System.out.println("---------------------------------");
+        System.out.print("Enter the number to proceed: ");
+        int log = input.nextInt();
+        switch(log){
+            case 1:
+                login(staff, customer, staffList, cusList, clogList, slogList);
+                break;
+            case 2:
+                register(customer, cusList); 
+                break;
+            case 3:
+                Iterator<Customer> cusIterator = cusList.getIterator();
+                Iterator<Staff> staffIterator = staffList.getIterator();
+                Iterator<Customer> clogIterator = clogList.getIterator();
+
+                // display all users account
+                while(cusIterator.hasNext()){
+                    Customer cust = cusIterator.next();
+                    clogList.add(customer = new Customer<>(cust.getUsername(), cust.getPassword()));
+                }
+                while(cusIterator.hasNext()){
+                    Customer clog = cusIterator.next();
+                    System.out.println(clog.getUsername());
+                }      
+                while(staffIterator.hasNext()){
+                    Staff slogList = staffIterator.next();
+                    slogList.add(staff = new Staff<>(staffList.getUsername(), staffList.getPassword()));
+>>>>>>> 935c38fe07b4ede6cb349e2bc646cea838b86448
                     
 //                 }        
 //                 break;
