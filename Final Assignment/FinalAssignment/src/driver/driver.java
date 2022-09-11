@@ -6,12 +6,16 @@ import adt.StackInterface;
 import adt.Stack;
 import adt.ArrayListInterface;
 import adt.ArrayList;
+import adt.LinkedQueue;
+import adt.LinkedQueueInterface;
 
 import entity.Chef;
 import entity.Inventory;
 import entity.Account;
 import entity.Customer;
 import entity.Staff;
+import entity.Menu;
+import entity.Order;
 
 import java.util.Iterator;
 import java.util.Scanner;
@@ -19,9 +23,13 @@ import java.util.Scanner;
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
+import control.MenuDetail;
+import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
+        MenuDetail menuDetail = new MenuDetail();
+        menuDetail.Main();
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
@@ -55,8 +63,16 @@ public class driver {
         // AccountControl accControl = new AccountControl();
         // accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
-        Kitchen kitchen = new Kitchen();
+        //Kitchen kitchen = new Kitchen();
         // Punch In chef into the stack
+<<<<<<< HEAD
         kitchen.Main();      
+=======
+        //kitchen.PunchIn("C0001", "ykp");
+        //kitchen.PunchIn("C0002", "ywy");
+        //kitchen.PunchIn("C0003", "ytl");
+        //kitchen.PunchIn("C0004", "cxn");
+        //kitchen.Main();      
+>>>>>>> e92d3e8d2e909867540bc3283728830c139fa1a6
     }
 }
