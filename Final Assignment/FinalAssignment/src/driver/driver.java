@@ -29,7 +29,10 @@ import control.OrderDetail;
 public class driver {
     public static void main(String[] args) {
         MenuDetail menuDetail = new MenuDetail();
+        OrderDetail orderDetail = new OrderDetail();
+        
         menuDetail.Main();
+        orderDetail.Main();
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
