@@ -23,13 +23,13 @@ import java.util.Scanner;
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
-import control.MenuDetail;
+// import control.MenuDetail;
 import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
-        OrderDetail orderDetail = new OrderDetail();
-        orderDetail.Main();
+        //OrderDetail orderDetail = new OrderDetail();
+        //orderDetail.Main();
         
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
@@ -44,7 +44,7 @@ public class driver {
 
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
-        stocks.main(invList, inventory, stocks);
+        // stocks.main(invList, inventory, stocks);
         
 
 
@@ -64,12 +64,7 @@ public class driver {
         // AccountControl accControl = new AccountControl();
         // accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
-        //Kitchen kitchen = new Kitchen();
-        // Punch In chef into the stack
-        //kitchen.PunchIn("C0001", "ykp");
-        //kitchen.PunchIn("C0002", "ywy");
-        //kitchen.PunchIn("C0003", "ytl");
-        //kitchen.PunchIn("C0004", "cxn");
-        //kitchen.Main();      
+        Kitchen kitchen = new Kitchen();
+        kitchen.Main();      
     }
 }

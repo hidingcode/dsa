@@ -68,18 +68,22 @@ public class Stack<T> implements StackInterface<T> {
 
     // Search the position in the stack and return the data
     public T searchFromPosition(int position) {
-        int index = 0;
-        Node currentNode = topNode;
-        while (currentNode != null){
-            if (index == position) {
-                return currentNode.data;
-            }
-            currentNode = currentNode.next;
-            index++;
+        if(position > numberOfEntries || position < 0){
+            System.out.println("Search not found");
+            return null;
         }
-        // Search failed
-        System.out.println("Search not found");
-        return null;
+        else{
+            int index = 0;
+            Node currentNode = topNode;
+            while (currentNode != null){
+                if (index == position) {
+                    return currentNode.data;
+                }
+                currentNode = currentNode.next;
+                index++;
+            }
+       }
+       return null;   
     }
 
     // Get the Number Of Entries
