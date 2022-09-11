@@ -13,6 +13,7 @@ public class Kitchen {
     
     public void GetOrder(){
         UpdateChef();
+        UpdateInventory();
     }
     
     public void UpdateInventory(){ 
