@@ -36,13 +36,17 @@ public class AccountControl {
             case 3:
                 Iterator<Customer> cusIterator = cusList.getIterator();
                 Iterator<Staff> staffIterator = staffList.getIterator();
+                Iterator<Customer> clogIterator = clogList.getIterator();
 
                 // display all users account
                 while(cusIterator.hasNext()){
-                    Customer clogList = cusIterator.next();
-                    clogList.add(customer = new Customer<>(cusList.getUsername(), cusList.getPassword()));
-                    System.out.println(clogList.getUsername());
-                }   
+                    Customer cust = cusIterator.next();
+                    clogList.add(customer = new Customer<>(cust.getUsername(), cust.getPassword()));
+                }
+                while(cusIterator.hasNext()){
+                    Customer clog = cusIterator.next();
+                    System.out.println(clog.getUsername());
+                }      
                 while(staffIterator.hasNext()){
                     Staff slogList = staffIterator.next();
                     slogList.add(staff = new Staff<>(staffList.getUsername(), staffList.getPassword()));

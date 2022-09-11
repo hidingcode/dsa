@@ -2,8 +2,8 @@ package driver;
 
 import adt.SortedArrayListInterface;
 import adt.SortedArrayList;
-import adt.LinkedStackInterface;
-import adt.LinkedStack;
+import adt.StackInterface;
+import adt.Stack;
 import adt.ArrayListInterface;
 import adt.ArrayList;
 
