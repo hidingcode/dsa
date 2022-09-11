@@ -19,4 +19,8 @@ public interface SortedArrayListInterface<T>{
 
     public Iterator<T> getIterator();
 
+    public void clear();
+
+    public boolean isEmpty();
+
 }

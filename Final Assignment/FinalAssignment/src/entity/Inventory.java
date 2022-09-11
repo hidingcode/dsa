@@ -47,7 +47,7 @@ public class Inventory<T> implements Comparable<Inventory>{
         char cmd = input.next().charAt(0);
         
         do{
-            while(cmd == 'a' || cmd == 'v' || cmd == 's' || cmd == 'o'){
+            while(cmd == 'a' || cmd == 'v' || cmd == 's' || cmd == 'c'){
                 switch(cmd){
                     case 'a': 
                         System.out.println("Add New Inventory: ");
@@ -68,32 +68,7 @@ public class Inventory<T> implements Comparable<Inventory>{
                     case 'v': 
                         System.out.println("Latest list: ");
                         inventory.update(invList, inventory, false, 0, false);
-                        if (inventory.stockList(invList, inventory)){
-                            System.out.println("Do you want to sort?");
-                            System.out.print("'y' for Yes, 'n' for No: ");
-                            char reqSort = input.next().charAt(0);
-                            switch(reqSort){
-                                case 'y':
-                                    System.out.println("YES");
-                                    System.out.println("What do you want to sort?");
-                                    System.out.print("'i' for ID, 'n' for Name, 'q' for quantity, 'p' for price, 'd' for date, any key to quit: ");
-                                    char sortBy = input.next().charAt(0);
-                                    switch(sortBy){
-                                        case 'i':
-                                            System.out.println("Sort by ID");
-                                            break;
-                                        case 'n':
-                                            System.out.println("Sort by Name");
-                                            break;
-                                        case 'q':
-                                            System.out.println("Sort by Quantity");
-                                            break;
-                                        case 'd':
-                                            System.out.println("Sort by Date");
-                                            break;
-                                    }
-                            }
-                        }
+                        inventory.stockList(invList, inventory);
 
                         break;
                     case 's':
@@ -103,8 +78,8 @@ public class Inventory<T> implements Comparable<Inventory>{
                         }
                         break;
                     
-                    case 'o':
-                    // inventory.update(invList, currentObj, outStock, qty);
+                    case 'c':
+                        invList.clear();
                         break;
 
                 }
@@ -113,6 +88,7 @@ public class Inventory<T> implements Comparable<Inventory>{
                     "Enter 'a' to add new inventory,\n"+
                     "Enter 'v' to view inventory list\n"+
                     "Enter 's' to search inventory\n"+
+                    "Enter 'c' to clear inventory\n"+
                     "Enter 'q' to quit the inventory\n"+
                     "Enter your selection: "
                 );

@@ -73,6 +73,16 @@ public class SortedArrayList<T extends Comparable<T>> implements SortedArrayList
         return numberOfEntries;
     }
 
+    @Override
+    public void clear(){
+        numberOfEntries = 0;
+    }
+
+    @Override
+    public boolean isEmpty(){
+        return numberOfEntries == 0;
+    }
+
     public boolean Searching(SortedArrayListInterface<Inventory> invList, Inventory inventory){
         Iterator<Inventory> invIterator = invList.getIterator();
         Scanner input = new Scanner(System.in);
