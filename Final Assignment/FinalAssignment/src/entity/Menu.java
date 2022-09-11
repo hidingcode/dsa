@@ -5,19 +5,17 @@ public class Menu {
     private String MenuName;
     private String MenuDesc;
     private String InvCode;
-    private int InvQuantity;
-    private double price;
+    private double MenuPrice;
 
     public Menu(){
 
     }
 
-    public Menu(String MenuID, String MenuName, String MenuDesc, String InvCode, int InvQuantity, double price){
+    public Menu(String MenuID, String MenuName, String MenuDesc, String InvCode, double MenuPrice){
         this.MenuID = MenuID;
         this.MenuName = MenuName;
         this.InvCode = InvCode;
-        this.InvQuantity = InvQuantity;
-        this.price = price;
+        this.MenuPrice = MenuPrice;
     }
 
     public String getMenuID() {
@@ -32,11 +30,8 @@ public class Menu {
     public String getInvCode() {
         return InvCode;
     }
-    public int getInvQuantity() {
-        return InvQuantity;
-    }
-    public double getPrice() {
-        return price;
+    public double getMenuPrice() {
+        return MenuPrice;
     }
     public void setMenuID(String menuID) {
         this.MenuID = menuID;
@@ -50,10 +45,7 @@ public class Menu {
     public void setInvCode(String invCode) {
         InvCode = invCode;
     }
-    public void setInvQuantity(int invQuantity) {
-        this.InvQuantity = invQuantity;
-    }
-    public void setPrice(double price) {
-        this.price = price;
+    public void setMenuPrice(double MenuPrice) {
+        this.MenuPrice = MenuPrice;
     }
 }
