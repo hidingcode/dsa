@@ -6,32 +6,41 @@ import adt.StackInterface;
 import adt.Stack;
 import adt.ArrayListInterface;
 import adt.ArrayList;
+import adt.LinkedQueue;
+import adt.LinkedQueueInterface;
 
 import entity.Chef;
 import entity.Inventory;
 import entity.Account;
 import entity.Customer;
 import entity.Staff;
+import entity.Menu;
+import entity.Order;
 
 import java.util.Iterator;
 import java.util.Scanner;
-// import java.util.Stack;
 
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
+import control.MenuDetail;
+import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
-        SortedListInterface<Inventory> invList = new SortedList<>();   
-        Inventory inventory;
-        StockControl stocks = new StockControl();
-        invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
-        invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
-        invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
-        invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
-        invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
-        invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
+        MenuDetail menuDetail = new MenuDetail();
+        menuDetail.Main();
+        // SortedListInterface<Inventory> invList = new SortedList<>();   
+        // Inventory inventory;
+        // StockControl stocks = new StockControl();
+        // invList.add(inventory = new Inventory("Inv001", "Steak", 25, 100));
+        // invList.add(inventory = new Inventory("Inv002", "Pork", 25, 80));
+        // invList.add(inventory = new Inventory("Inv003", "Lamb", 25, 90));
+        // invList.add(inventory = new Inventory("Inv004", "Fish", 25, 70));
+        // invList.add(inventory = new Inventory("Inv005", "Bread", 25, 50));
+        // invList.add(inventory = new Inventory("Inv006", "Sugar", 25, 30));
+
+
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
         stocks.main(invList, inventory, stocks);
@@ -54,35 +63,12 @@ public class driver {
         // AccountControl accControl = new AccountControl();
         // accControl.main(staff, customer, staffList, cusList, clogList, slogList);
 
-        
-        //  
-        // Kitchen kitchen = new Kitchen();
-        // kitchen.Main();
-        // Chef chef;
-        // chef = new Chef("c1", "lyc");
-        // chefShift.push(chef);
-        // System.out.println(chef.getChefName());
-        // chef = new Chef("c1", "ykp");
-        // chefShift.push(chef);
-        //want to search ykp
-
-//         kitchen.PunchIn("C0001", "ykp", "Noob");
-//         kitchen.PunchIn("C0002", "ywy", "Noob");
-
-        // Inventory inventory = new Inventory(req_invCode, req_invName, req_quantity, req_price);
-        // Iterator<Inventory> invIterator = invList.getIterator();
-        // while(invIterator.hasNext()){
-        //     Inventory inv = invIterator.next();
-        //     System.out.printf(inv.getInvCode()+", "+ inv.getInvName()+", "+ inv.getQuantity()+", "+ inv.getPrice()+ ", "+inv.getDate()+"\n");
-            
-        //     if (inv.getInvCode().equals(inventory.getInvCode())){
-        //         System.out.println("Existed");
-        //     }
-            
-        // }  
-              
-    //    Kitchen kitchen = new Kitchen();
-    //    kitchen.Main();
-    // }
+        //Kitchen kitchen = new Kitchen();
+        // Punch In chef into the stack
+        //kitchen.PunchIn("C0001", "ykp");
+        //kitchen.PunchIn("C0002", "ywy");
+        //kitchen.PunchIn("C0003", "ytl");
+        //kitchen.PunchIn("C0004", "cxn");
+        //kitchen.Main();      
     }
 }

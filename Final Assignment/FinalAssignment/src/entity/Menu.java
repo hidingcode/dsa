@@ -1,30 +1,24 @@
 package entity;
 
 public class Menu {
-    private int MenuID;
+    private String MenuID;
     private String MenuName;
     private String MenuDesc;
-    private int InvQuantity;
-    private double price;
+    private String InvCode;
+    private double MenuPrice;
 
     public Menu(){
 
     }
 
-    public Menu(int MenuID, String MenuName, String MenuDesc, double price){
+    public Menu(String MenuID, String MenuName, String MenuDesc, String InvCode, double MenuPrice){
         this.MenuID = MenuID;
         this.MenuName = MenuName;
-        this.price = price;
+        this.InvCode = InvCode;
+        this.MenuPrice = MenuPrice;
     }
 
-    public Menu(int MenuID, String MenuName, String MenuDesc, int InvQuantity, double price){
-        this.MenuID = MenuID;
-        this.MenuName = MenuName;
-        this.InvQuantity = InvQuantity;
-        this.price = price;
-    }
-
-    public int getMenuID() {
+    public String getMenuID() {
         return MenuID;
     }
     public String getMenuName() {
@@ -33,13 +27,13 @@ public class Menu {
     public String getMenuDesc() {
         return MenuDesc;
     }
-    public int getInvQuantity() {
-        return InvQuantity;
+    public String getInvCode() {
+        return InvCode;
     }
-    public double getPrice() {
-        return price;
+    public double getMenuPrice() {
+        return MenuPrice;
     }
-    public void setMenuID(int menuID) {
+    public void setMenuID(String menuID) {
         this.MenuID = menuID;
     }
     public void setMenuName(String menuName) {
@@ -48,10 +42,10 @@ public class Menu {
     public void setMenuDesc(String menuDesc) {
         this.MenuDesc = menuDesc;
     }
-    public void setInvQuantity(int invQuantity) {
-        this.InvQuantity = invQuantity;
+    public void setInvCode(String invCode) {
+        InvCode = invCode;
     }
-    public void setPrice(double price) {
-        this.price = price;
+    public void setMenuPrice(double MenuPrice) {
+        this.MenuPrice = MenuPrice;
     }
 }
