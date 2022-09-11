@@ -1,5 +1,5 @@
-package adt;
+// package adt;
 
-public class LinkedList<T> implements LinkedListInterface<T>{
+// public class LinkedList<T> implements LinkedListInterface<T>{
     
-}
+// }
