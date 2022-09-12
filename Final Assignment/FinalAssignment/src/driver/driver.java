@@ -52,22 +52,22 @@ public class driver {
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
         
-        // Account        
-        ArrayListInterface<Staff> staffList = new ArrayList<>();
-        Staff staff;
-        staffList.add(staff = new Staff(1, "waimin", "waimin123", 2, 1));
-        staffList.add(staff = new Staff(2, "yanzhi", "yanzhi123", 2, 2));
-        staffList.add(staff = new Staff(3, "weiyuan", "weiyuan123", 2, 3));
+        // // Account        
+        // ArrayListInterface<Staff> staffList = new ArrayList<>();
+        // Staff staff;
+        // staffList.add(staff = new Staff(1, "waimin", "waimin123", 2, 1));
+        // staffList.add(staff = new Staff(2, "yanzhi", "yanzhi123", 2, 2));
+        // staffList.add(staff = new Staff(3, "weiyuan", "weiyuan123", 2, 3));
 
-        ArrayListInterface<Customer> cusList = new ArrayList<>();
-        Customer customer;
-        cusList.add(customer = new Customer(1, "nengfu", "nengfu14", 1, "018-1234567", "KualaLumpur,Cheras"));
-        cusList.add(customer = new Customer(2, "tikjoe", "tikjoe14", 1, "019-1234567", "Selangor,Kepong"));
-        cusList.add(customer = new Customer(3, "yongchien", "yongchien14", 1, "013-1235896", "Penang,GeorgeTown"));
-        cusList.add(customer = new Customer(4, "xinnan", "xinnangay", 1, "015-1234567", "Perak,Ipoh"));
+        // ArrayListInterface<Customer> cusList = new ArrayList<>();
+        // Customer customer;
+        // cusList.add(customer = new Customer(1, "nengfu", "nengfu14", 1, "018-1234567", "KualaLumpur,Cheras"));
+        // cusList.add(customer = new Customer(2, "tikjoe", "tikjoe14", 1, "019-1234567", "Selangor,Kepong"));
+        // cusList.add(customer = new Customer(3, "yongchien", "yongchien14", 1, "013-1235896", "Penang,GeorgeTown"));
+        // cusList.add(customer = new Customer(4, "xinnan", "xinnangay", 1, "015-1234567", "Perak,Ipoh"));
         
-        AccountControl accControl = new AccountControl();
-        accControl.main(staff, customer, staffList, cusList);
+        // AccountControl accControl = new AccountControl();
+        // accControl.main(staff, customer, staffList, cusList);
 
         //Kitchen kitchen = new Kitchen();
         // Punch In chef into the stack
