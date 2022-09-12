@@ -13,5 +13,6 @@ public interface SortedListInterface<T>{
     public void clear();
     public boolean isEmpty();
     public boolean isFull();
+    public void expandCapacity();
 
 }
