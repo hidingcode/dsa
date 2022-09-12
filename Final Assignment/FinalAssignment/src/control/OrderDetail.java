@@ -1,7 +1,7 @@
 package control;
 
-import adt.LinkedQueue;
-import adt.LinkedQueueInterface;
+import adt.Queue;
+import adt.QueueInterface;
 import adt.ArrayList;
 import adt.ArrayListInterface;
 import entity.Menu;
@@ -15,6 +15,8 @@ import java.util.Scanner;
 
 public class OrderDetail {
     private double Price = 0;
+    int ordernumber;
+    Queue OrderQueue = new Queue();
 
     public class Queue {
         int SIZE = 10;
@@ -78,6 +80,13 @@ public class OrderDetail {
         
             System.out.println("\nRear index-> " + rear);
             }
+        }
+    }
+
+    public void genOrderNum(){
+        for(ordernumber = 1 ; ordernumber<=5; ordernumber++){
+            OrderQueue.enQueue(ordernumber);
+            // 6th element can't be added to because the queue is full
         }
     }
 
@@ -151,6 +160,7 @@ public class OrderDetail {
 
     public void Main(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList, SortedListInterface<Inventory> invList){
         MenuList(menuList, invList);
+        genOrderNum();
         Iterator<Menu> menuIterator = menuList.getIterator();
         System.out.println("\nMenu List: ");
         System.out.printf("%-10s %-25s %-30s %-15s %-15s %-25s\n", "MenuID", "Name", "Description", "Price(RM)", "Quantity", "Availability");
@@ -170,28 +180,12 @@ public class OrderDetail {
 
         OrderList(menuList, orderList);
 
-        Queue q = new Queue();
+        OrderQueue.enQueue(ordernumber++);
 
-        // deQueue is not possible on empty queue
-        q.deQueue();
+        OrderQueue.display();
 
-        // enQueue 5 elements
-        q.enQueue(001);
-        q.enQueue(002);
-        q.enQueue(003);
-        q.enQueue(004);
-        q.enQueue(005);
+        OrderQueue.deQueue();
 
-        // 6th element can't be added to because the queue is full
-        q.enQueue(6);
-
-        q.display();
-
-        // deQueue removes element entered first i.e. 1
-        q.deQueue();
-
-        // Now we have just 4 elements
-        q.display();
-        
+        OrderQueue.display();
     }
 }
