@@ -17,6 +17,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         array = (T[]) new Object[initialCapacity];
     }
 
+    // add new antry at the last of the array
     @Override
     public boolean add(T newEntry) {
         array[numberOfEntries] = newEntry;
@@ -24,6 +25,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return true;
     }
 
+    // add new entry to the newPosition
     public boolean add(int newPosition, T newEntry) {
         boolean isSuccessful = true;
 
@@ -38,6 +40,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
       return isSuccessful;
     }
 
+    // remove an entry of the givenPosition
     @Override
     public T remove(int givenPosition) {
         T result = null;
@@ -53,11 +56,13 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return result;
     }
 
+    // remove the whole entry in the array list
     @Override
     public void clear() {
         numberOfEntries = 0;
     }
 
+    // replace the givenPosition entry
     @Override
     public boolean replace(int givenPosition, T newEntry) {
         boolean isSuccessful = true;
@@ -70,6 +75,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return isSuccessful;
     }
 
+    // check the current entry is included in the array list
     @Override
     public boolean contains(T anEntry) {
       boolean found = false;
@@ -81,6 +87,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
       return found;
     }
 
+    // get the givenPosition entry
     @Override
     public T getEntry(int givenPosition) {
         T result = null;
@@ -92,11 +99,13 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return result;
     }
 
+    // get the total number of entry
     @Override
     public int getNumberOfEntries() {
         return numberOfEntries;
     }
 
+    // check the entry is empty
     @Override
     public boolean isEmpty() {
         return numberOfEntries == 0;
@@ -120,6 +129,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         }
     }
 
+    // get the entry number
     @Override
     public int getIndexNumber(T anEntry){
         int entryNumber = -1;
@@ -131,6 +141,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return entryNumber;
     }
 
+    // get all the entry and display it
     @Override
     public void getAllEntry(){
         for(int index = 0; index < numberOfEntries; index++){
@@ -138,11 +149,13 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         }
     }
 
+    // get Iterator
     @Override
     public Iterator<T> getIterator() {
         return new ArrayListInterator();
     }
 
+    // use iterator to loop through the array list
     private class ArrayListInterator implements Iterator<T>{
         int nextIndex = 0;
 
