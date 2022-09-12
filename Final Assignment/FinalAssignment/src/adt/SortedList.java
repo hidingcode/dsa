@@ -1,7 +1,5 @@
 package adt;
 import java.util.Iterator;
-import java.util.Scanner;
-import entity.Inventory;
 
 public class SortedList<T extends Comparable<T>> implements SortedListInterface<T>{
 
@@ -19,6 +17,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
         array = (T[]) new Comparable[initialCapacity];
     }
 
+    // Expand the capacity of the list.
     public void expandCapacity(){
         T[] oldList = array;
         int oldSize = oldList.length;
@@ -30,6 +29,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     }
 
+    //Check the capacity of the list is full
     public boolean isFull(){
         if (numberOfEntries >= array.length){
             return true;
@@ -47,7 +47,6 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
         while (i < numberOfEntries && newEntry.compareTo(array[i]) > 0){
             i++;
         }
-        System.out.println("array size: "+array.length);
         moveForward(i + 1);
         array[i] = newEntry;
         numberOfEntries++;
@@ -55,7 +54,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     }
 
-    //any new entry coming in, this function will move the existed values in the array forward, to let new entry to insert into the first index of the array
+    //any new entry coming in, this function will move the existed values in the List forward, to let new entry to insert into the List
     private void moveForward(int insertPosition) {
         int newIndex = insertPosition - 1;
         int lastIndex = numberOfEntries - 1;    
@@ -77,7 +76,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
         }
     }
     
-    //any entry being removed, this function will move the existed values in the array backward, to ensure first index of the array is not empty
+    //any entry being removed, this function will move the existed values in the list backward
     private void moveBackward(int removePosition){
         int removedIndex = removePosition;
         int lastIndex = numberOfEntries - 1;
@@ -87,7 +86,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     }
 
     
-    //Check if a certain values is contained in the list
+    //Check if a certain values is in the list
     public boolean contain(String object, String currentObject){
         if (object.equals(currentObject)){
             return true;
@@ -95,7 +94,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
         return false;
     }
     
-    //Return the number of entries in the list
+    //Return the number of entries of the list
     public int getNumberOfEntries(){
         return numberOfEntries;
     }

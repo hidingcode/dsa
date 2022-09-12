@@ -3,7 +3,6 @@ package control;
 import java.time.LocalDate;
 import java.util.Iterator;
 import java.util.Scanner;
-import adt.SortedList;
 import entity.Inventory;
 
 import adt.SortedListInterface;

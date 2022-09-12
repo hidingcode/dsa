@@ -1,5 +1,4 @@
 package adt;
-import entity.Inventory;
 import java.util.Iterator;
 
 public interface SortedListInterface<T>{

@@ -2,7 +2,7 @@ package entity;
 
 import java.time.LocalDate;
 
-public class Inventory implements Comparable<Inventory> {
+public class Inventory<T> implements Comparable<Inventory> {
     private String invCode;
     private String invName;
     private int quantity;
@@ -29,6 +29,13 @@ public class Inventory implements Comparable<Inventory> {
 
     public int compareTo(Inventory inv) {
         return (this.invCode.compareTo(inv.invCode));
+    }
+
+    public boolean equals(T obj, T currentObj){
+        if (obj == currentObj){
+            return true;
+        }
+        return false;
     }
 
     public String getInvCode() {
