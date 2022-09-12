@@ -49,15 +49,8 @@ public class OrderDetail {
                         menu.setStatus(true);
                     }
                 }
-                
             }
         }
-            
-
-            
-        
-        
-        
     }
 
     public void Ordering(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList, char orderProceed){
@@ -74,9 +67,7 @@ public class OrderDetail {
                     System.out.println("yes");
                     setCalc_Total(menu.getMenuPrice());
                     orderList.add(new Order(menu.getMenuID(),menu.getMenuPrice(), getCalc_Total()));
-
                 }
-
             }
             orderProceed = 'q';
         }while(orderProceed == 'y');
@@ -94,7 +85,6 @@ public class OrderDetail {
         }
         System.out.printf("Total Price (RM): %.2f", tempOrder.getTotalPrice());
         System.out.println();
-       
     }
 
     public void Main(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList, SortedListInterface<Inventory> invList){
