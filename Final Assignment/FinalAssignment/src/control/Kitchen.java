@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 public class Kitchen {  
     StackInterface<Chef> chefShift = new Stack<Chef>();
-    
+
     public void GetOrder(){
         UpdateChef();
         UpdateInventory();
@@ -85,10 +85,10 @@ public class Kitchen {
             System.out.println();
             System.out.println("Chef Shift List");
             System.out.println();
-            System.out.printf("%-10s %-15s\n","Chef ID","Chef Name");
+            System.out.printf("%-10s %-15s %-20s\n","Chef ID","Chef Name", "Punch In Time");
             while (chefIterator.hasNext()) {
             Chef chef = chefIterator.next();
-            System.out.printf("%-10s %-15s\n",chef.getChefID(),chef.getChefName());
+            System.out.printf("%-10s %-15s %-20s\n",chef.getChefID(),chef.getChefName(),chef.getDate());
             }
         }
         Main();
@@ -103,8 +103,8 @@ public class Kitchen {
         else{
             System.out.println("\nLast Punch In Chef");
             System.out.println();
-            System.out.printf("%-10s %-15s\n","Chef ID","Chef Name");
-            System.out.printf("%-10s %-15s\n",chefShift.peek().getChefID(),chefShift.peek().getChefName());    
+            System.out.printf("%-10s %-15s %-20s\n","Chef ID","Chef Name", "Punch In Time");
+            System.out.printf("%-10s %-15s %-20s\n",chefShift.peek().getChefID(),chefShift.peek().getChefName(), chefShift.peek().getDate());    
         }
         Main();
     }
@@ -132,10 +132,11 @@ public class Kitchen {
         String resultChefID = SearchChef(punchInSequence).getChefID();
         // Get the result ChefName
         String resultChefName = SearchChef(punchInSequence).getChefName();
-        System.out.println("The" + punchInSequence + "punch in chef");
+
+        System.out.println("The " + punchInSequence + " chef to punch in");
         System.out.println();
-        System.out.printf("%-10s %-15s\n","Chef ID","Chef Name");
-        System.out.printf("%-10s %-15s\n",resultChefID,resultChefName);  
+        System.out.printf("%-10s %-15s \n","Chef ID","Chef Name");
+        System.out.printf("%-10s %-15s \n",resultChefID,resultChefName);  
         Main();
     }
 
