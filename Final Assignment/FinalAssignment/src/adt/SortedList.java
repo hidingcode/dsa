@@ -7,7 +7,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     private T[] array;
     private int numberOfEntries;
-    private static final int DEFAULT_CAPACITY = 100;
+    private static int DEFAULT_CAPACITY = 10;
 
     public SortedList(){
         this(DEFAULT_CAPACITY);
@@ -16,6 +16,19 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
     public SortedList(int initialCapacity){
         numberOfEntries = 0;
         array = (T[]) new Comparable[initialCapacity];
+    }
+
+    // public int extendCapacity(){
+    //     array = (T[]) new Comparable[initialCapacity];
+    //     return 
+    // }
+
+    public void isFull(){
+        for (int i = 0 ; i < array.length ; i++){
+            System.out.println(array[i]);
+        }
+
+        
     }
 
     //add a new entry and sorting the values into the array
