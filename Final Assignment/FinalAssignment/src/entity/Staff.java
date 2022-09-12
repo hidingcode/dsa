@@ -22,6 +22,6 @@ public class Staff<T> extends Account {
 
     @Override
     public String toString(){
-        return super.toString()+ "\tStaffID\n" + "\n" +getAccountID() + "\t" + getUsername() + "\t" +getPassword() + "\t" + getAccess() + "\t" + getStaffID();
+        return String.format("%-15s %-15s %-15s %-7s %-10s", getAccountID(), getUsername(), getPassword(), getAccess(), getStaffID());
     }
 }

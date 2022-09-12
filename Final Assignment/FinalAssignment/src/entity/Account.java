@@ -60,6 +60,6 @@ public class Account {
 
     @Override
     public String toString(){
-        return "Account-ID\tUsername\tPassword\tAccess";
+        return getAccountID() + getUsername() + getPassword() + getAccess() ;
     }
 }

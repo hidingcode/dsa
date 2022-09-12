@@ -36,6 +36,6 @@ public class Customer<T> extends Account{
     
     @Override
     public String toString(){
-        return super.toString()+ "\tPhone-Number\tHome-Address\n" + getAccountID() + "\t" + getUsername() + "\t" + getPassword() + "\t" + getAccess() + "\t" + getPhoneNo() + "\t" + getAddress();
+        return String.format("%-15s %-15s %-15s %-7s %-15s %-30s", getAccountID(), getUsername(), getPassword(), getAccess(), getPhoneNo(), getAddress());
     }
 }

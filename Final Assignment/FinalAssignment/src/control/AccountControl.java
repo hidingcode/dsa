@@ -14,7 +14,7 @@ public class AccountControl<T> {
     Scanner input = new Scanner(System.in);
 
     public void main(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
-        
+
         System.out.println("(1) Login \n"
                         +  "(2) Register ");
         System.out.println("---------------------------------");
@@ -122,8 +122,7 @@ public class AccountControl<T> {
                         +  "Home Address: " + accAddres +"\n"); 
 
         System.out.println("(1) Edit Profile\n" 
-                        +  "(2) Menu\n"
-                        +  "(3) Logout");
+                        +  "(2) Logout");
 
         System.out.print("\nEnter: ");
         int profileChoice = input.nextInt();
@@ -168,9 +167,6 @@ public class AccountControl<T> {
                 }
                 break;
             case 2:
-                // Menu
-                break;
-            case 3:
                 logout(staff, customer, staffList, cusList);
                 break;
         }
@@ -189,8 +185,10 @@ public class AccountControl<T> {
 
         switch(staffChoice){
             case 1:
+                System.out.println("[--- User List ---]\n");
+                System.out.println("Account-ID\tUsername\tPassword\tAccess\tPhone-Number\tHome-Address");
                 cusList.getAllEntry();
-                System.out.println("(1) Edit\n"
+                System.out.println("\n(1) Edit\n"
                 +  "(2) Remove\n"
                 +  "(3) Add");
                 System.out.print("\nEnter: ");
@@ -216,6 +214,7 @@ public class AccountControl<T> {
                         cusList.replace(inputAccID, customer);
 
                         System.out.println("[--- User List ---]\n");
+                        System.out.println("Account-ID\tUsername\tPassword\tAccess\tPhone-Number\tHome-Address");
                         cusList.getAllEntry();
                         break;
                 case 2:
@@ -225,6 +224,7 @@ public class AccountControl<T> {
                     System.out.println();
 
                     System.out.println("[--- User List ---]\n");
+                    System.out.println("Account-ID\tUsername\tPassword\tAccess\tPhone-Number\tHome-Address");
                     cusList.getAllEntry();
                     break;
                 case 3:
@@ -243,25 +243,28 @@ public class AccountControl<T> {
                     cusList.add(customer = new Customer<>(cusAccID, customerUsername, customerPassword, 1, customerPhoneNo, customerAddress));
 
                     System.out.println("[--- User List ---]\n");
+                    System.out.println("Account-ID\tUsername\tPassword\tAccess\tPhone-Number\tHome-Address");
                     cusList.getAllEntry();
                     break;
                 }
                 break;
             case 2:
+                System.out.println("[--- Staff List ---]\n");
+                System.out.println("Account-ID\tUsername\tPassword\tAccess\tStaffID");
                 staffList.getAllEntry();
-                System.out.println("(1) Edit\n"
+                System.out.println("\n(1) Edit\n"
                 +  "(2) Remove\n"
                 +  "(3) Add");
                 System.out.print("\nEnter: ");
                 staffDecision = input.nextInt();
                 switch(staffDecision){
                     case 1:
-                        System.out.println("Account-ID: ");
+                        System.out.print("Account-ID: ");
                         int inputAccID = input.nextInt();
-                        System.out.println("Current Username: " + staffList.getEntry(inputAccID).getUsername() 
+                        System.out.print("Current Username: " + staffList.getEntry(inputAccID).getUsername() 
                                         +  "New username: ");
                         String newUsername = input.next();
-                        System.out.println("Current Password: " + staffList.getEntry(inputAccID).getPassword() 
+                        System.out.print("Current Password: " + staffList.getEntry(inputAccID).getPassword() 
                                         +  "New username: ");
                         String newPassword = input.next();
 
@@ -269,6 +272,7 @@ public class AccountControl<T> {
                         staffList.replace(inputAccID, staff);
 
                         System.out.println("[--- Staff List ---]\n");
+                        System.out.println("Account-ID\tUsername\tPassword\tAccess\tStaffID\n");
                         staffList.getAllEntry();
                         break;
                 case 2:
@@ -277,6 +281,7 @@ public class AccountControl<T> {
                     staffList.remove(selectedAcc);
 
                     System.out.println("[--- Staff List ---]\n");
+                    System.out.println("Account-ID\tUsername\tPassword\tAccess\tStaffID\n");
                     staffList.getAllEntry();
                     break;
                 case 3:
@@ -294,19 +299,20 @@ public class AccountControl<T> {
                     staffList.add(staff = new Staff<>(staffAccID, staffUsername, staffPassword, 2, staffID));
 
                     System.out.println("[--- Staff List ---]\n");
+                    System.out.println("Account-ID\tUsername\tPassword\tAccess\tStaffID\n");
                     staffList.getAllEntry();
                     break;
                 }
                 break;
         }   
-        System.out.println("(1) Menu\n" 
+        System.out.println("(1) Back to Account List\n" 
                         +  "(2) Logout");
 
         System.out.print("\nEnter: ");
         int staffPageChoice = input.nextInt();
         switch(staffPageChoice){
             case 1:
-                //Menu
+                accountDB(staff, customer, staffList, cusList);
                 break;
             case 2:
                 login(staff, customer, staffList, cusList);
@@ -316,7 +322,7 @@ public class AccountControl<T> {
     }   
 
     public void logout(Staff staff, Customer customer, ArrayListInterface<Staff> staffList, ArrayListInterface<Customer> cusList){
+        System.out.println("Back to Login Page.");
         login(staff, customer, staffList, cusList);
-        // Menu
     }
 }
