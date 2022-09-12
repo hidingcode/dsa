@@ -1,6 +1,6 @@
 package entity;
 
-public class PaymentDetail {
+public class paymentDetail {
     private String customerName;
     private String orderStuff;
     private float total;
