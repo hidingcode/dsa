@@ -17,7 +17,6 @@ public class OrderDetail {
     private double Price = 0;
     public int ordernumber;
     public Queue OrderQueue = new Queue();
-    public int randomNumber = (int)(Math.random()*(9-1+1)+1);
 
     public class Queue {
         int SIZE = 15;
@@ -30,17 +29,15 @@ public class OrderDetail {
             }
             return false;
         }
-
         boolean isEmpty() {
             if (front == -1)
             return true;
             else
             return false;
         }
-
         void enQueue(int element) {
             if (isFull()) {
-                System.out.println("Queue is full");
+                System.out.println("Too much Queue");
             } else {
                 if (front == -1)
                 front = 0;
@@ -49,18 +46,17 @@ public class OrderDetail {
                 System.out.println("Order No." + element);
             }
         }
-
         int deQueue() {
             int element;
             if (isEmpty()) {
-                System.out.println("Queue is empty");
+                System.out.println("No more Queue");
                 return (-1);
             } else {
                 element = items[front];
                 if (front >= rear) {
                 front = -1;
                 rear = -1;
-                } /* Q has only one element, so we reset the queue after deleting it. */
+                } 
                 else {
                     front++;
                 }
@@ -71,34 +67,32 @@ public class OrderDetail {
             /* Function to display elements of Queue */
             int i;
             if (isEmpty()) {
-            System.out.println("No more");
+            System.out.println("No more Queue");
             } else {
             System.out.println("\nNow No.           ->" + front);
             System.out.println("V Waiting Queue V ");
             for (i = front; i <= rear; i++)
                 System.out.print(items[i] + "  ");
-        
             System.out.println("\nLatest No. -> " + rear);
             }
         }
     }
 
+    //generate OrderNumber to 9
     public void genOrderNum(){
-        
         for(ordernumber = 1 ; ordernumber<=9; ordernumber++){
             OrderQueue.enQueue(ordernumber);
         }
     }
 
-    public double getCalc_Total(){
-        return Price;
-    }
+    
 
+    //auto dequeue after 5sec until all queue is end
     public void orderdeQ(){
         boolean action = true;
         while( action == true){
             try{ 
-                Thread.sleep(3000);   
+                Thread.sleep(5000);   
                 OrderQueue.deQueue();
                 OrderQueue.display();
             }
@@ -111,11 +105,16 @@ public class OrderDetail {
         }
         
     }
-
+    //calculate the total price
+    public double getCalc_Total(){
+        return Price;
+    }
+    
     public void setCalc_Total(double menuprice){
         this.Price += menuprice;
     }
 
+    //generate menu list and check the inventory stock with inventory
     public void MenuList(ArrayListInterface<Menu> menuList, SortedListInterface<Inventory> invList){
         menuList.add(new Menu("M001","Black pepper Steak","Steak with black pepper","Inv001",19, 0, false));
         menuList.add(new Menu("M002","Black pepper Pork","Pork with black pepper","Inv002", 19, 0, false));
@@ -127,6 +126,7 @@ public class OrderDetail {
         menuList.add(new Menu("M008","Mushroom Fish","Fish with Mushroom sauce","Inv004", 19, 0, false));
         menuList.add(new Menu("M009","Raw Steak","Steak AND ITS Fuking RAW!!!!","Inv001", 19, 0, false));
         
+        //check the inventory stock with inventory
         Iterator<Inventory> InvIterator = invList.getIterator();
         int num = 0;
         while (InvIterator.hasNext()){
@@ -144,6 +144,7 @@ public class OrderDetail {
         }
     }
 
+    //give user to order until the order is complete
     public void Ordering(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList, char orderProceed){
         Iterator<Menu> menuIterator = menuList.getIterator();
         Scanner sc = new Scanner(System.in);
@@ -163,6 +164,7 @@ public class OrderDetail {
         
     }
 
+    //generate the overall ordered food and sum the total price
     public void OrderList(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList){
         Iterator<Order> menuIterator = orderList.getIterator();
         Order tempOrder = new Order();
@@ -176,6 +178,7 @@ public class OrderDetail {
         System.out.println();
     }
 
+    
     public void Main(ArrayListInterface<Menu> menuList, ArrayListInterface<Order> orderList, SortedListInterface<Inventory> invList){
         MenuList(menuList, invList);
         genOrderNum();

@@ -1,20 +1,16 @@
 package adt;
 
 import java.util.Iterator;
-/**
- * LinkedQueue.java A class that implements the ADT queue by using a chain of
- * nodes that has both head and tail references. 
- */
+
 public class Queue<T> implements QueueInterface<T> {
 
-  private Node firstNode; // references node at front of queue
-  private Node lastNode;  // references node at back of queue
+  private Node firstNode;
+  private Node lastNode;
 
   public Queue() {
     firstNode = null;
     lastNode = null;
   } 
-
   public void enqueue(T newEntry) {
     Node newNode = new Node(newEntry, null);
 
@@ -29,17 +25,14 @@ public class Queue<T> implements QueueInterface<T> {
 
   public T getFront() {
     T front = null;
-
     if (!isEmpty()) {
       front = firstNode.data;
     }
-
     return front;
   } 
 
   public int dequeue() {
     T front = null;
-
     if (!isEmpty()) {
       front = firstNode.data;
       firstNode = firstNode.next;
@@ -48,10 +41,8 @@ public class Queue<T> implements QueueInterface<T> {
         lastNode = null;
       }
     } 
-
     return (int) front;
-  } // end dequeue
-
+  }
   public boolean isEmpty() {
     return (firstNode == null) && (lastNode == null);
   }
