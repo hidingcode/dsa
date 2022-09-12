@@ -15,11 +15,12 @@ import java.util.Scanner;
 
 public class OrderDetail {
     private double Price = 0;
-    int ordernumber;
-    Queue OrderQueue = new Queue();
+    public int ordernumber;
+    public Queue OrderQueue = new Queue();
+    public int randomNumber = (int)(Math.random()*(9-1+1)+1);
 
     public class Queue {
-        int SIZE = 10;
+        int SIZE = 15;
         int items[] = new int[SIZE];
         int front, rear;
 
@@ -45,7 +46,7 @@ public class OrderDetail {
                 front = 0;
                 rear++;
                 items[rear] = element;
-                System.out.println("Inserted " + element);
+                System.out.println("Order No." + element);
             }
         }
 
@@ -63,7 +64,6 @@ public class OrderDetail {
                 else {
                     front++;
                 }
-                System.out.println("Deleted -> " + element);
                 return (element);
             }
         }
@@ -71,27 +71,45 @@ public class OrderDetail {
             /* Function to display elements of Queue */
             int i;
             if (isEmpty()) {
-            System.out.println("Empty Queue");
+            System.out.println("No more");
             } else {
-            System.out.println("\nFront index-> " + front);
-            System.out.println("Items -> ");
+            System.out.println("\nNow No.           ->" + front);
+            System.out.println("V Waiting Queue V ");
             for (i = front; i <= rear; i++)
                 System.out.print(items[i] + "  ");
         
-            System.out.println("\nRear index-> " + rear);
+            System.out.println("\nLatest No. -> " + rear);
             }
         }
     }
 
     public void genOrderNum(){
-        for(ordernumber = 1 ; ordernumber<=5; ordernumber++){
+        
+        for(ordernumber = 1 ; ordernumber<=9; ordernumber++){
             OrderQueue.enQueue(ordernumber);
-            // 6th element can't be added to because the queue is full
         }
     }
 
     public double getCalc_Total(){
         return Price;
+    }
+
+    public void orderdeQ(){
+        boolean action = true;
+        while( action == true){
+            try{ 
+                Thread.sleep(3000);   
+                OrderQueue.deQueue();
+                OrderQueue.display();
+            }
+            catch(InterruptedException ex){
+                ex.printStackTrace();
+            }
+            if(OrderQueue.isEmpty()){
+                action = false;
+            }
+        }
+        
     }
 
     public void setCalc_Total(double menuprice){
@@ -183,9 +201,7 @@ public class OrderDetail {
         OrderQueue.enQueue(ordernumber++);
 
         OrderQueue.display();
-
-        OrderQueue.deQueue();
-
-        OrderQueue.display();
+        
+        orderdeQ();
     }
 }
