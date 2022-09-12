@@ -23,14 +23,23 @@ import java.util.Scanner;
 import control.Kitchen;
 // import control.AccountControl;
 import control.StockControl;
+<<<<<<< HEAD
 // import control.MenuDetail;
+=======
+>>>>>>> 56f514eb8a37dad7b669e14f9ed8935083156c26
 import control.OrderDetail;
 
 public class driver {
     public static void main(String[] args) {
+<<<<<<< HEAD
         //OrderDetail orderDetail = new OrderDetail();
         //orderDetail.Main();
         
+=======
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.Main();
+
+>>>>>>> 56f514eb8a37dad7b669e14f9ed8935083156c26
         // SortedListInterface<Inventory> invList = new SortedList<>();   
         // Inventory inventory;
         // StockControl stocks = new StockControl();
@@ -44,7 +53,11 @@ public class driver {
 
         // Inventory inventory2 = new Inventory("Inv004", "Fish", 25, 100);
         // stocks.outStock(invList, inventory2, stocks, true, 25);
+<<<<<<< HEAD
         // stocks.main(invList, inventory, stocks);
+=======
+        //stocks.main(invList, inventory, stocks);
+>>>>>>> 56f514eb8a37dad7b669e14f9ed8935083156c26
         
 
 
