@@ -1,5 +1,6 @@
 package driver;
 
+
 import adt.SortedListInterface;
 import adt.SortedList;
 import adt.StackInterface;
@@ -25,11 +26,15 @@ import control.AccountControl;
 import control.StockControl;
 import control.OrderDetail;
 
+import control.payment;
+
 public class driver {
     public static void main(String[] args) {
         ArrayListInterface<Menu> menuList = new ArrayList<Menu>();
         ArrayListInterface<Order> orderList = new ArrayList<Order>();
         SortedListInterface<Inventory> invList = new SortedList<>();  
+        payment PaymentProcess = new payment();
+
         // Inventory inventory;
         // StockControl stocks = new StockControl();
         // invList.add(inventory = new Inventory("Inv001", "Steak", 25, 230));

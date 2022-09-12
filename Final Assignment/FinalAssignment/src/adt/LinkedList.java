@@ -1,18 +1,19 @@
-// package adt;
-
-import org.w3c.dom.Node;
+package adt;
 
 public class LinkedList<T> implements LinkedListInterface<T>{
     private Node firstNode;
     private int numberOfEntries;
 
+    //clear the ram everytime create a new linkedlist
     public LinkedList()
     {
         clear();
     }
 
+    //Used to find the data inside the specific position
     public T contains(int Position)
     {
+        //result used to prove this function is run correctly or not
         T result = null;
         if ((Position >= 1) && (Position <= numberOfEntries + 1))
         {
@@ -169,9 +170,10 @@ public class LinkedList<T> implements LinkedListInterface<T>{
         return isSuccessful;
     }
 
+    //used to calculate total entries inside this linkedlist
     public int getNumberOfEntries()
     {
-        int entries = 0;
+        int entries = 1;
         Node currentNode = firstNode;
         while (currentNode.next != null)
         {
@@ -181,6 +183,7 @@ public class LinkedList<T> implements LinkedListInterface<T>{
         return entries;
     }
 
+    
     private class Node {
         private T data;
         private Node next;
