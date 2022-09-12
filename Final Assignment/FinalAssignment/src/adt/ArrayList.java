@@ -111,6 +111,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         return numberOfEntries == 0;
     }
 
+    // create a new entry 
     private void createAccount(int newPosition) {
         int newIndex = newPosition - 1;
         int lastIndex = numberOfEntries - 1;
@@ -120,6 +121,7 @@ public class ArrayList<T> implements ArrayListInterface<T> {
         }
     }
 
+    // remove the entry
     private void removeGap(int givenPosition) {
         int removedIndex = givenPosition - 1;
         int lastIndex = numberOfEntries - 1;
