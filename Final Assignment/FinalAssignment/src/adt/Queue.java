@@ -1,12 +1,12 @@
 package adt;
 import java.util.Iterator;
 
-public class LinkedQueue<T> implements LinkedQueueInterface<T> {
+public class Queue<T> implements QueueInterface<T> {
 
     private Node firstNode; // references node at front of queue
     private Node lastNode;  // references node at back of queue
   
-    public LinkedQueue() {
+    public Queue() {
       firstNode = null;
       lastNode = null;
     } 

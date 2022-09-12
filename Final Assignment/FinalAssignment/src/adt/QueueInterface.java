@@ -1,7 +1,7 @@
 package adt;
 import java.util.Iterator;
 
-public interface LinkedQueueInterface<T> {
+public interface QueueInterface<T> {
   
   public Iterator<T> getIterator();
   public void enqueue(T newEntry);
