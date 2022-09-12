@@ -30,14 +30,12 @@ public class OrderDetail {
             }
             return false;
         }
-
         boolean isEmpty() {
             if (front == -1)
             return true;
             else
             return false;
         }
-
         void enQueue(int element) {
             if (isFull()) {
                 System.out.println("Queue is full");
@@ -49,7 +47,6 @@ public class OrderDetail {
                 System.out.println("Order No." + element);
             }
         }
-
         int deQueue() {
             int element;
             if (isEmpty()) {
