@@ -1,19 +1,22 @@
 package entity;
 
 public class Order {
-    String orderNo;
+    int orderNo = 0;
     String MenuID;
     double price;
     double TotalPrice;
     
-    Order(String orderNo,String MenuID, double price, double TotalPrice){
-        this.orderNo = orderNo;
+    public Order(){
+
+    }
+
+    public Order(String MenuID, double price, double TotalPrice){
         this.MenuID = MenuID;
         this.price = price;
         this.TotalPrice = TotalPrice;
     }
 
-    public String getOrderNo() {
+    public int getOrderNo() {
         return orderNo;
     }
     public String getMenuID() {
@@ -25,8 +28,8 @@ public class Order {
     public double getTotalPrice() {
         return TotalPrice;
     }
-    public void setOrderNo(String orderNo) {
-        this.orderNo = orderNo;
+    public void setOrderNo(int orderNo) {
+        this.orderNo += 1;
     }
     public void setMenuID(String menuID) {
         MenuID = menuID;

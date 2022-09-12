@@ -24,8 +24,7 @@ public class Inventory implements Comparable<Inventory> {
     }
 
     public String toString(){
-        System.out.printf("%-10s %-15s %-15s %-15s %-10s\n", "InvID", "InvName", "Quantity", "Price(RM)", "Date");
-        return getInvCode()+ getInvName()+ getQuantity()+ getPrice()+ getDate();
+        return "InvID: "+getInvCode() +"\nInvName: "+ getInvName() +"\nQuantity: "+ getQuantity() +"\nPrice(RM): "+ getPrice() +"\nDate: "+ getDate()+"\n";
     }
 
     public int compareTo(Inventory inv) {

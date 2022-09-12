@@ -6,6 +6,8 @@ public class Menu {
     private String MenuDesc;
     private String InvCode;
     private double MenuPrice;
+    private int qty;
+    private boolean status;
 
     public Menu(){
 
@@ -17,6 +19,16 @@ public class Menu {
         this.MenuDesc = MenuDesc;
         this.InvCode = InvCode;
         this.MenuPrice = MenuPrice;
+    }
+
+    public Menu(String MenuID, String MenuName, String MenuDesc, String InvCode, double MenuPrice, int qty, boolean status){
+        this.MenuID = MenuID;
+        this.MenuName = MenuName;
+        this.MenuDesc = MenuDesc;
+        this.InvCode = InvCode;
+        this.MenuPrice = MenuPrice;
+        this.qty = qty;
+        this.status = status;
     }
 
     public String getMenuID() {
@@ -34,6 +46,23 @@ public class Menu {
     public double getMenuPrice() {
         return MenuPrice;
     }
+
+    public boolean getStatus() {
+        return status;
+    }
+
+    public void setStatus(boolean status) {
+        this.status = status;
+    }
+
+    public int getQty() {
+        return qty;
+    }
+
+    public void setQty(int qty) {
+        this.qty = qty;
+    }
+
     public void setMenuID(String menuID) {
         this.MenuID = menuID;
     }

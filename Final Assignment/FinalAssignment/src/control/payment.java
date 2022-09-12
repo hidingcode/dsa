@@ -2,7 +2,7 @@ package control;
 import adt.LinkedList;
 import entity.paymentDetail;
 
-public class payment 
+public class Payment 
 {
     //mock data 
     
@@ -12,7 +12,7 @@ public class payment
     // payment added
     //payment displayed latest.
 
-    public payment(Boolean result)
+    public Payment(Boolean result)
     {
         if (result = false)
         {
