@@ -7,7 +7,7 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     private T[] array;
     private int numberOfEntries;
-    private static int DEFAULT_CAPACITY = 10;
+    private static int DEFAULT_CAPACITY = 2;
 
     public SortedList(){
         this(DEFAULT_CAPACITY);
@@ -15,32 +15,44 @@ public class SortedList<T extends Comparable<T>> implements SortedListInterface<
 
     public SortedList(int initialCapacity){
         numberOfEntries = 0;
+        
         array = (T[]) new Comparable[initialCapacity];
     }
 
-    // public int extendCapacity(){
-    //     array = (T[]) new Comparable[initialCapacity];
-    //     return 
-    // }
+    public void extendCapacity(){
+        T[] oldList = array;
+        int oldSize = oldList.length;
+        array = (T[]) new Comparable[oldSize*2];
 
-    public void isFull(){
-        for (int i = 0 ; i < array.length ; i++){
-            System.out.println(array[i]);
+        for(int i = 0 ; i < oldList.length ; i++){
+            array[i] = oldList[i];
         }
 
+    }
+
+    public boolean isFull(){
+        if (numberOfEntries >= array.length){
+            return true;
+        }
         
+        return false;
     }
 
     //add a new entry and sorting the values into the array
     public boolean add(T newEntry){
         int i = 0;
+        if(isFull()){
+            extendCapacity();
+        }
         while (i < numberOfEntries && newEntry.compareTo(array[i]) > 0){
             i++;
         }
+        System.out.println("array size: "+array.length);
         moveForward(i + 1);
         array[i] = newEntry;
         numberOfEntries++;
         return true;
+
     }
 
     //any new entry coming in, this function will move the existed values in the array forward, to let new entry to insert into the first index of the array

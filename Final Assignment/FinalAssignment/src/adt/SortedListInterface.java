@@ -12,6 +12,6 @@ public interface SortedListInterface<T>{
     public <T> Iterator<T> getIterator();
     public void clear();
     public boolean isEmpty();
-    public void isFull();
+    public boolean isFull();
 
 }
