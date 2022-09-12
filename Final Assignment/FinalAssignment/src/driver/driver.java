@@ -6,8 +6,8 @@ import adt.StackInterface;
 import adt.Stack;
 import adt.ArrayListInterface;
 import adt.ArrayList;
-import adt.LinkedQueue;
-import adt.LinkedQueueInterface;
+import adt.Queue;
+import adt.QueueInterface;
 
 import entity.Chef;
 import entity.Inventory;
@@ -44,8 +44,8 @@ public class driver {
         // stocks.update(invList, inventory, false, 0, false);
         // stocks.main(invList, inventory, stocks);
 
-        //OrderDetail orderDetail = new OrderDetail();
-        //orderDetail.Main(menuList, orderList, invList);
+        OrderDetail orderDetail = new OrderDetail();
+        orderDetail.Main(menuList, orderList, invList);
 
 
         // StockControl stocks = new StockControl();
